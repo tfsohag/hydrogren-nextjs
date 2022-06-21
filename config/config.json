@@ -1,0 +1,24 @@
+{
+  "site": {
+    "title": "Next Tailwind Boilerplate",
+    "baseURL": "/",
+    "favicon": "/images/icons/favicon.ico",
+    "logo": "",
+    "logo_width": "200",
+    "logo_text": "Next Boilerplate"
+  },
+
+  "settings": {
+    "pagination": 2
+  },
+
+  "params": {
+    "copyright": "Copyright © 2022 Next Boilerplate"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Next Boilerplate"
+  }
+}

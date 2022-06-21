@@ -1,0 +1,41 @@
+{
+  "main": [
+    {
+      "name": "Home",
+      "url": "/",
+      "hasChildren": true,
+      "children": [
+        {
+          "name": "About",
+          "url": "/about"
+        }
+      ]
+    },
+    {
+      "name": "About Me",
+      "url": "/about"
+    },
+    {
+      "name": "My Blogs",
+      "url": "/posts"
+    },
+    {
+      "name": "Contact Me",
+      "url": "/contact"
+    }
+  ],
+  "footer": [
+    {
+      "name": "Elements",
+      "url": "/elements"
+    },
+    {
+      "name": "Privacy Policy",
+      "url": "/privacy-policy"
+    },
+    {
+      "name": "Terms and Conditions",
+      "url": "/terms-conditions"
+    }
+  ]
+}

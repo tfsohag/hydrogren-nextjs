@@ -1,0 +1,31 @@
+.container {
+  @apply mx-auto px-4;
+}
+
+// section style
+.section {
+  @apply py-16;
+}
+
+// form style
+.form-inputs * {
+  @apply mb-5 leading-10;
+}
+
+// social icon style
+.social-icons {
+  li {
+    @apply mx-2 inline-block last:mr-0;
+    a {
+      @apply block h-9 w-9 rounded-full bg-primary text-center text-white;
+      svg {
+        @apply m-auto h-9;
+      }
+    }
+  }
+}
+
+// content style
+.content {
+  @apply prose max-w-none;
+}
