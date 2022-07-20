@@ -11,7 +11,7 @@ const shortcodes = {
 };
 
 const PostSingle = ({ frontmatter, content, mdxSource }) => {
-  const { description, title } = frontmatter;
+  const { description, title, date, image, categories } = frontmatter;
 
   return (
     <Base
@@ -21,30 +21,18 @@ const PostSingle = ({ frontmatter, content, mdxSource }) => {
       <section className="section">
         <div className="container">
           <div className="mb-4">
-            <span className="mb-6 text-base font-normal">
-              {dateFormat(new Date(frontmatter.date))}
-            </span>
-            <h1 className="text-h1 font-bold">{frontmatter.title}</h1>
-          </div>
-          <div className="mb-4">
-            {frontmatter.image && (
-              <Image
-                src={frontmatter.image}
-                height="200"
-                width="200"
-                alt={frontmatter.title}
-              />
+            <span>{dateFormat(new Date(date))}</span>
+            <h1>{title}</h1>
+            {image && (
+              <Image src={image} height="200" width="200" alt={title} />
             )}
+            {categories.map((category, i) => (
+              <Link key={`category-${i}`} href={`/categories/${category}`}>
+                <a className="mr-4">{category}</a>
+              </Link>
+            ))}
             <div className="content">
               <MDXRemote {...mdxSource} components={shortcodes} />
-            </div>
-
-            <div className="mb-4">
-              {frontmatter.categories.map((category, i) => (
-                <Link key={`category-${i}`} href={`/categories/${category}`}>
-                  <a className="mr-4">{category}</a>
-                </Link>
-              ))}
             </div>
           </div>
         </div>
