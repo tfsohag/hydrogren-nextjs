@@ -1,6 +1,5 @@
 import Link from "next/link";
-import React from "react";
-import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
+import { IoChevronBackOutline, IoChevronForwardOutline } from "react-icons/io5";
 
 const Pagination = ({ page, numOfPage }) => {
   const hasPrevPage = page > 1;
@@ -10,13 +9,13 @@ const Pagination = ({ page, numOfPage }) => {
     <div className="mx-auto mb-20 flex w-1/4 items-center justify-between rounded-full bg-light">
       {hasPrevPage ? (
         <Link href={`/posts/page/${page - 1}`} passHref>
-          <a className="block border-r border-border-default py-4 px-5 text-center">
-            <MdArrowBackIos />
+          <a className="border-border-default block border-r py-4 px-5 text-center">
+            <IoChevronBackOutline />
           </a>
         </Link>
       ) : (
-        <span className="block cursor-not-allowed border-r border-border-default py-4 px-5 text-center">
-          <MdArrowBackIos />
+        <span className="border-border-default block cursor-not-allowed border-r py-4 px-5 text-center">
+          <IoChevronBackOutline />
         </span>
       )}
       <span>
@@ -25,13 +24,13 @@ const Pagination = ({ page, numOfPage }) => {
       </span>
       {hasNextPage ? (
         <Link href={`/posts/page/${page + 1}`} passHref>
-          <a className="block border-l border-border-default py-4 px-5 text-center">
-            <MdArrowForwardIos />
+          <a className="border-border-default block border-l py-4 px-5 text-center">
+            <IoChevronForwardOutline />
           </a>
         </Link>
       ) : (
-        <span className="block cursor-not-allowed border-l border-border-default py-4 px-5 text-center">
-          <MdArrowForwardIos />
+        <span className="border-border-default block cursor-not-allowed border-l py-4 px-5 text-center">
+          <IoChevronForwardOutline />
         </span>
       )}
     </div>

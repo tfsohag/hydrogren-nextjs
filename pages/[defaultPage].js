@@ -2,7 +2,7 @@ import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Regular from "@layouts/Regular";
-import { getDefaultPage } from "@lib/pages";
+import { getDefaultPage } from "@lib/contents";
 
 // for all regular pages
 const RegularPages = ({ slug, regularPages, contact, about }) => {

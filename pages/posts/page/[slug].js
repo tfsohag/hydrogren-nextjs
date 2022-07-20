@@ -1,7 +1,7 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllPosts, getIndexFile } from "@lib/pages";
+import { getAllPosts, getIndexFile } from "@lib/contents";
 import Posts from "@partials/Posts";
 import { useState } from "react";
 

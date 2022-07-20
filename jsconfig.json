@@ -5,6 +5,7 @@
       "@layouts/*": ["layouts/*"],
       "@components/*": ["layouts/components/*"],
       "@partials/*": ["layouts/partials/*"],
+      "@shortcodes/*": ["layouts/shortcodes/*"],
       "@config/*": ["config/*"],
       "@lib/*": ["lib/*"]
     }

@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllPosts, getIndexFile, getSinglePage } from "@lib/pages";
+import { getAllPosts, getSinglePage } from "@lib/contents";
 import { sortByDate } from "@lib/utils/dateformat";
 import Posts from "@partials/Posts";
 
@@ -10,11 +10,7 @@ const Home = ({ post, postIndex }) => {
   const { title } = config.site;
   return (
     <Base title={title}>
-      <Posts
-        className="section"
-        post={sortPostByDate.slice(0, showPost)}
-        postIndex={postIndex}
-      />
+      <Posts className="section" post={sortPostByDate.slice(0, showPost)} />
     </Base>
   );
 };
@@ -23,13 +19,11 @@ export default Home;
 
 export const getStaticProps = () => {
   const banner = getSinglePage("content/_index.md");
-  const postIndex = getIndexFile("content/posts");
   const allPost = getAllPosts("content/posts", false);
 
   return {
     props: {
       banner: banner,
-      postIndex: postIndex,
       post: allPost,
     },
   };

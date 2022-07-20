@@ -1,5 +1,5 @@
 import Base from "@layouts/Baseof";
-import { getAllPosts } from "@lib/pages";
+import { getAllPosts } from "@lib/contents";
 import { getAllCategory } from "@lib/utils/category";
 import { kebabCase } from "@lib/utils/slugger";
 import Posts from "@partials/Posts";
