@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllPosts, getSinglePage } from "@lib/contents";
+import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/dateformat";
 
 import Posts from "@partials/Posts";
@@ -19,8 +19,8 @@ const Home = ({ post, postIndex }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const banner = await getSinglePage("content/_index.md");
-  const allPost = getAllPosts("content/posts", false);
+  const banner = await getListPage("content");
+  const allPost = getSinglePages("content/posts", false);
 
   return {
     props: {

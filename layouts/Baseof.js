@@ -1,5 +1,4 @@
 import config from "@config/config.json";
-import { strip } from "@lib/utils/strip";
 import Footer from "@partials/Footer";
 import Header from "@partials/Header";
 import Head from "next/head";
@@ -21,7 +20,7 @@ const Base = ({
     <>
       <Head>
         {/* meta_title */}
-        <title>{strip(meta_title ? meta_title : title)}</title>
+        <title>{meta_title ? meta_title : title}</title>
 
         {/* canonical url */}
         {canonical && <link rel="canonical" href={canonical} itemProp="url" />}

@@ -1,5 +1,5 @@
 import PostSingle from "@layouts/PostSingle";
-import { getAllPosts, getAllSlug } from "@lib/contents";
+import { getAllSlug, getSinglePages } from "@lib/contents";
 import { serialize } from "next-mdx-remote/serialize";
 
 const Article = ({ post, mdxSource }) => {
@@ -31,7 +31,7 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async ({ params }) => {
   const { single } = params;
-  const allBlogs = getAllPosts("content/posts", false);
+  const allBlogs = getSinglePages("content/posts", false);
   const singlePost = allBlogs.filter((p) => p.slug == single);
   const mdxSource = await serialize(singlePost[0].content);
 
