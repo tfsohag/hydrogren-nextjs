@@ -1,7 +1,7 @@
 import { marked } from "marked";
 
 const Contact = ({ contact }) => {
-  const { frontmatter } = contact[0];
+  const { frontmatter } = contact;
 
   return (
     <section className="section mx-auto max-w-[1260px]">

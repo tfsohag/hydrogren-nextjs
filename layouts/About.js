@@ -2,7 +2,8 @@ import { marked } from "marked";
 import Image from "next/image";
 
 const About = ({ about }) => {
-  const { frontmatter, content } = about[0];
+  const { frontmatter, content } = about;
+  console.log(about);
 
   return (
     <section className="section mx-auto max-w-[1260px]">

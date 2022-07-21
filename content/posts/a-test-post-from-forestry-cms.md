@@ -5,5 +5,3 @@ categories:
   - forestry
 draft: false
 ---
-
-Now you can add posts from <https://app.forestry.io>, isn't it amazing?

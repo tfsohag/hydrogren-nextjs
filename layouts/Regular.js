@@ -1,7 +1,7 @@
 import { marked } from "marked";
 
 const Regular = ({ regularPages }) => {
-  const { frontmatter, content } = regularPages[0];
+  const { frontmatter, content } = regularPages;
   return (
     <section className="section">
       <div className="container">

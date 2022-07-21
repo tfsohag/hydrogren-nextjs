@@ -1,5 +1,5 @@
 import PostSingle from "@layouts/PostSingle";
-import { getAllPosts } from "@lib/contents";
+import { getAllPosts, getAllSlug } from "@lib/contents";
 import { serialize } from "next-mdx-remote/serialize";
 
 const Article = ({ post, mdxSource }) => {
@@ -16,10 +16,10 @@ const Article = ({ post, mdxSource }) => {
 };
 
 export const getStaticPaths = () => {
-  const allBlogs = getAllPosts("content/posts", false);
-  const paths = allBlogs.map((post) => ({
+  const allSlug = getAllSlug("content/posts");
+  const paths = allSlug.map((slug) => ({
     params: {
-      single: post.slug,
+      single: slug,
     },
   }));
 
@@ -39,7 +39,6 @@ export const getStaticProps = async ({ params }) => {
     props: {
       post: singlePost,
       slug: single,
-      allPost: allBlogs,
       mdxSource: mdxSource,
     },
   };

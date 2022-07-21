@@ -2,21 +2,21 @@ import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Regular from "@layouts/Regular";
-import { getDefaultPage } from "@lib/contents";
+import { getAllSlug, getDefaultPage } from "@lib/contents";
 
 // for all regular pages
-const RegularPages = ({ slug, regularPages, contact, about }) => {
-  if (regularPages === undefined) {
+const RegularPages = ({ slug, pageData }) => {
+  if (pageData === undefined) {
     return null;
   }
   return (
     <Base title={slug}>
       {slug == "contact" ? (
-        <Contact contact={contact} />
+        <Contact contact={pageData} />
       ) : slug == "about" ? (
-        <About about={about} />
+        <About about={pageData} />
       ) : (
-        <Regular regularPages={regularPages} />
+        <Regular regularPages={pageData} />
       )}
     </Base>
   );
@@ -24,11 +24,12 @@ const RegularPages = ({ slug, regularPages, contact, about }) => {
 export default RegularPages;
 
 // for regular page routes
-export const getStaticPaths = () => {
-  const regularPages = getDefaultPage("content");
-  const paths = regularPages.map((page) => ({
+export const getStaticPaths = async () => {
+  const slugs = getAllSlug("content");
+
+  const paths = slugs.map((slug) => ({
     params: {
-      defaultPage: page.slug,
+      defaultPage: slug,
     },
   }));
 
@@ -39,32 +40,16 @@ export const getStaticPaths = () => {
 };
 
 // for regular page data
-export const getStaticProps = ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const { defaultPage } = params;
-  const allPages = getDefaultPage("content");
-  const regularPages = allPages.filter(
-    (page) => !page.frontmatter.layout //&& page.slug === defaultPage
-  );
-  const about = allPages.filter((page) => page.frontmatter.layout === "about");
-  const contact = allPages.filter(
-    (page) => page.frontmatter.layout === "contact"
-  );
-
-  // for custom 404 page rendering
-  const allPagesCheck = allPages.filter((page) => page.slug === defaultPage);
-  if (allPagesCheck.length === 0) {
-    return {
-      notFound: true,
-    };
-  }
+  const allPages = await getDefaultPage(`content/${defaultPage}`);
+  console.log(allPages);
 
   return {
     props: {
-      regularPages: regularPages,
       slug: defaultPage,
-      allPost: allPages,
-      contact: contact,
-      about: about,
+      // slug: defaultPage,
+      pageData: allPages,
     },
   };
 };

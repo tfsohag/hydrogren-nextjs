@@ -1,9 +1,10 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getAllPosts, getIndexFile } from "@lib/contents";
+import { getAllPosts, getAllSlug, getIndexFile } from "@lib/contents";
 import Posts from "@partials/Posts";
 import { useState } from "react";
+import { serialize } from "next-mdx-remote/serialize";
 
 const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
   const [index] = useState(true);
@@ -28,9 +29,9 @@ const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
 export default BlogPagination;
 
 export const getStaticPaths = () => {
-  const allBlogs = getAllPosts("content/posts", false);
+  const allSlug = getAllSlug("content/posts", false);
   const { pagination } = config.settings;
-  const numOfPage = Math.ceil(allBlogs.length / pagination);
+  const numOfPage = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
   for (let i = 0; i < numOfPage; i++) {
@@ -47,11 +48,13 @@ export const getStaticPaths = () => {
   };
 };
 
-export const getStaticProps = ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const page = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const allBlogs = getAllPosts("content/posts", false);
   const blogIndex = getIndexFile("content/posts");
+
+  const mdxSource = await serialize(blogIndex.content);
 
   return {
     props: {
@@ -59,6 +62,7 @@ export const getStaticProps = ({ params }) => {
       allBlogs: allBlogs,
       page: page,
       blogIndex: blogIndex,
+      mdxSource,
     },
   };
 };
