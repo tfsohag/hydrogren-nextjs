@@ -1,14 +1,10 @@
 import { dateFormat } from "@lib/utils/dateformat";
 import { strip } from "@lib/utils/strip";
-import { Button } from "@shortcodes/index";
+import { shortcodes } from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 import Link from "next/link";
 import Base from "./Baseof";
-
-const shortcodes = {
-  Button,
-};
 
 const PostSingle = ({ frontmatter, content, mdxSource }) => {
   const { description, title, date, image, categories } = frontmatter;

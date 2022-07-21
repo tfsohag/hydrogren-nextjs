@@ -1,7 +1,6 @@
 ---
 title: "About"
-subtitle: "About Myself"
-image: /images/mehedi.png
+image: 
 layout: about
 ---
 

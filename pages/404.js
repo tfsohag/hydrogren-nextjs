@@ -1,7 +1,5 @@
-import React from "react";
-
 const notFound = () => {
-  return <div>404</div>;
+  return <div className="text-h1">404</div>;
 };
 
 export default notFound;

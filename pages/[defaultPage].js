@@ -11,9 +11,6 @@ const RegularPages = ({ slug, pageData }) => {
   const { title, meta_title, description, image, noindex, canonical } =
     pageData.frontmatter;
   const { content } = pageData;
-  if (pageData === undefined) {
-    return null;
-  }
 
   return (
     <Base
@@ -41,7 +38,6 @@ export default RegularPages;
 // for regular page routes
 export const getStaticPaths = async () => {
   const slugs = getAllSlug("content");
-
   const paths = slugs.map((slug) => ({
     params: {
       defaultPage: slug,
@@ -50,7 +46,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
