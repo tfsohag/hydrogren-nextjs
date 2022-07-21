@@ -6,3 +6,7 @@
 
 # [build.environment]
 # NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+# Include all files in all functions
+[functions]
+included_files = ["content/**"]
