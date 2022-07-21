@@ -52,7 +52,7 @@ export const getStaticProps = async ({ params }) => {
   const page = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const allBlogs = getSinglePages("content/posts", false);
-  const blogIndex = getListPage("content/posts");
+  const blogIndex = await getListPage("content/posts");
 
   const mdxSource = await serialize(blogIndex.content);
 

@@ -1,5 +1,5 @@
 import Base from "@layouts/Baseof";
-import { getAllPosts } from "@lib/contents";
+import { getSinglePages } from "@lib/contents";
 import { getAllCategory } from "@lib/utils/category";
 import { kebabCase } from "@lib/utils/slugger";
 import Posts from "@partials/Posts";
@@ -77,7 +77,7 @@ export const getStaticProps = ({ params }) => {
       (c) => kebabCase(c) == params.category
     );
 
-    const allPosts = getAllPosts("content/posts");
+    const allPosts = getSinglePages("content/posts");
     const data = allPosts.filter((e) => {
       return e.category.some((a) => {
         return filterByCategory.indexOf(a) != -1;
