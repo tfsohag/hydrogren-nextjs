@@ -1,5 +1,5 @@
 ---
-title: "Hi, I'm **Mehedi_Sharif**"
+title: "About"
 subtitle: "About Myself"
 image: /images/mehedi.png
 layout: about
