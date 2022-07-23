@@ -9,4 +9,5 @@
 
 # Include all files in all functions
 [functions]
-included_files = ["content/**/*.md"]
+node_bundler = "esbuild"
+included_files = ["content/*.md"]
