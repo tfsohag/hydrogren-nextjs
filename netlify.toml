@@ -9,4 +9,4 @@
 
 # Include all files in all functions
 [functions]
-included_files = ["content/**"]
+included_files = ["content/**/*.md"]
