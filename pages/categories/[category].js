@@ -52,9 +52,9 @@ const Category = ({ category, post }) => {
 export default Category;
 
 export async function getStaticPaths() {
-  const category = getAllCategory();
+  const category = getAllCategory("content/posts");
 
-  const paths = Object.keys(category).map((d) => ({
+  const paths = category.map((d) => ({
     params: {
       category: d,
     },
