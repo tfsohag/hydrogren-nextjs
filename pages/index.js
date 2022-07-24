@@ -15,8 +15,7 @@ const Home = ({ post }) => {
   );
 };
 
-export default Home;
-
+// for homepage data
 export const getStaticProps = async () => {
   const banner = await getListPage("content");
   const allPost = getSinglePages("content/posts", false);
@@ -28,3 +27,5 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+export default Home;

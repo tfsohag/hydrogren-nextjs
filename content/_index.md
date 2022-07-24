@@ -16,4 +16,7 @@ banner:
       logo: "/images/brands/statichunt.png"
       preview: "/images/brands/tf-preview.jpeg"
       link: https://statichunt.com
+
+test:
+  title: "Test Title"
 ---
