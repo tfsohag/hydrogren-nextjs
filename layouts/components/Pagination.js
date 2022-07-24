@@ -4,6 +4,11 @@ const Pagination = ({ page, numOfPage }) => {
   const hasPrevPage = page > 1;
   const hasNextPage = numOfPage > page;
 
+  let pageList = [];
+  for (let i = 1; i <= numOfPage; i++) {
+    pageList.push(i);
+  }
+
   return (
     // <div className="mx-auto mb-20 flex w-1/4 items-center justify-between rounded-full bg-light">
     //   {hasPrevPage ? (
@@ -78,21 +83,27 @@ const Pagination = ({ page, numOfPage }) => {
       )}
 
       {/* page index */}
-      <a
-        href="#"
-        aria-current="page"
-        className="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600"
-      >
-        {" "}
-        1{" "}
-      </a>
-      <a
+      {pageList.map((pageination, i) => (
+        <a
+          key={`page-${i}`}
+          href="#"
+          aria-current="page"
+          className={`relative z-10 inline-flex items-center border  ${
+            pageination == page
+              ? "bg-indigo-50 text-indigo-600"
+              : "border-gray-300 text-gray-500"
+          } px-4 py-2 text-sm font-medium `}
+        >
+          {pageination}
+        </a>
+      ))}
+      {/* <a
         href="#"
         className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50"
       >
         {" "}
         2{" "}
-      </a>
+      </a> */}
 
       {/* next page */}
       {hasNextPage ? (
