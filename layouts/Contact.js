@@ -9,9 +9,21 @@ const Contact = ({ data }) => {
       <div className="container">
         {markdownify(title, "h1")}
         <form>
-          <input name="name" type="text" placeholder="Name" required />
-          <input name="email" type="email" placeholder="Email" required />
-          <textarea rows="7" placeholder="Message" />
+          <input
+            className="block"
+            name="name"
+            type="text"
+            placeholder="Name"
+            required
+          />
+          <input
+            className="block"
+            name="email"
+            type="email"
+            placeholder="Email"
+            required
+          />
+          <textarea className="block" rows="7" placeholder="Message" />
           <button className="btn">Submit Now</button>
         </form>
       </div>

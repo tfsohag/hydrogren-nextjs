@@ -31,7 +31,7 @@ export const getStaticPaths = () => {
 
 export const getStaticProps = async ({ params }) => {
   const { single } = params;
-  const allBlogs = getSinglePages("content/posts", false);
+  const allBlogs = getSinglePages("content/posts");
   const singlePost = allBlogs.filter((p) => p.slug == single);
   const mdxSource = await serialize(singlePost[0].content);
 
