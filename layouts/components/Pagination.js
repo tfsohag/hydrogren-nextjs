@@ -10,35 +10,6 @@ const Pagination = ({ page, numOfPage }) => {
   }
 
   return (
-    // <div className="mx-auto mb-20 flex w-1/4 items-center justify-between rounded-full bg-light">
-    //   {hasPrevPage ? (
-    //     <Link href={`/posts/page/${page - 1}`} passHref>
-    //       <a className="border-border-default block border-r py-4 px-5 text-center">
-    //         <IoChevronBackOutline />
-    //       </a>
-    //     </Link>
-    //   ) : (
-    //     <span className="border-border-default block cursor-not-allowed border-r py-4 px-5 text-center">
-    //       <IoChevronBackOutline />
-    //     </span>
-    //   )}
-    //   <span>
-    //     <strong> {page < 9 ? "0" + page : page}</strong>/
-    //     {numOfPage < 9 ? "0" + numOfPage : numOfPage}
-    //   </span>
-    //   {hasNextPage ? (
-    //     <Link href={`/posts/page/${page + 1}`} passHref>
-    //       <a className="border-border-default block border-l py-4 px-5 text-center">
-    //         <IoChevronForwardOutline />
-    //       </a>
-    //     </Link>
-    //   ) : (
-    //     <span className="border-border-default block cursor-not-allowed border-l py-4 px-5 text-center">
-    //       <IoChevronForwardOutline />
-    //     </span>
-    //   )}
-    // </div>
-
     <nav
       className="mb-4 flex justify-center -space-x-px"
       aria-label="Pagination"
@@ -83,31 +54,24 @@ const Pagination = ({ page, numOfPage }) => {
       )}
 
       {/* page index */}
-      {pageList.map((pageination, i) => (
-        <a
-          key={`page-${i}`}
-          href="#"
-          aria-current="page"
-          className={`relative z-10 inline-flex items-center border  ${
-            pageination == page
-              ? "bg-indigo-50 text-indigo-600"
-              : "border-gray-300 text-gray-500"
-          } px-4 py-2 text-sm font-medium `}
-        >
-          {pageination}
-        </a>
+      {pageList.map((pagination, i) => (
+        <Link key={`page-${i}`} href={`/posts/page/${pagination}`}>
+          <a
+            aria-current="page"
+            className={`relative z-10 inline-flex items-center border  ${
+              pagination == page
+                ? "bg-indigo-50 text-indigo-600"
+                : "border-gray-300 text-gray-500"
+            } px-4 py-2 text-sm font-medium `}
+          >
+            {pagination}
+          </a>
+        </Link>
       ))}
-      {/* <a
-        href="#"
-        className="relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50"
-      >
-        {" "}
-        2{" "}
-      </a> */}
 
       {/* next page */}
       {hasNextPage ? (
-        <Link href={`/posts/page/${page - 1}`} passHref>
+        <Link href={`/posts/page/${page + 1}`} passHref>
           <a className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50">
             <span className="sr-only">Next</span>
             <svg
