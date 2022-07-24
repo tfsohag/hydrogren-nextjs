@@ -1,7 +1,8 @@
 ---
 title: "About"
-image: 
+image:
 layout: about
+draft: true
 ---
 
 ## Who Am I
