@@ -19,7 +19,7 @@ const Base = ({
   return (
     <>
       <Head>
-        {/* meta_title */}
+        {/* title */}
         <title>{meta_title ? meta_title : title}</title>
 
         {/* canonical url */}
@@ -34,7 +34,7 @@ const Base = ({
         {/* noindex robots */}
         {noindex && <meta name="robots" content="noindex,nofollow" />}
 
-        {/* meta_description */}
+        {/* meta-description */}
         <meta
           name="description"
           content={description ? description : meta_description}
@@ -43,10 +43,10 @@ const Base = ({
         {/* author from config.json */}
         <meta name="author" content={meta_author} />
 
-        {/* meta_title */}
+        {/* og-title */}
         <meta property="og:title" content={meta_title ? meta_title : title} />
 
-        {/* meta_description */}
+        {/* og-description */}
         <meta
           property="og:description"
           content={description ? description : meta_description}
@@ -57,20 +57,21 @@ const Base = ({
           content={`${baseURL}${router.asPath.replace("/", "")}`}
         />
 
-        {/* meta_title */}
+        {/* twitter-title */}
         <meta name="twitter:title" content={meta_title ? meta_title : title} />
 
-        {/* meta_description */}
+        {/* twitter-description */}
         <meta
           name="twitter:description"
           content={description ? description : meta_description}
         />
 
-        {/* image meta */}
+        {/* og-image */}
         <meta
           property="og:image"
           content={image ? `${image}` : `${meta_image}`}
         />
+        {/* twitter-image */}
         <meta
           name="twitter:image"
           content={image ? `${image}` : `${meta_image}`}

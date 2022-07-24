@@ -4,7 +4,6 @@ import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
 import { getAllSlug, getRegularPage } from "@lib/contents";
 import { strip } from "@lib/utils/strip";
-import { marked } from "marked";
 
 // for all regular pages
 const RegularPages = ({ slug, data }) => {
@@ -14,7 +13,7 @@ const RegularPages = ({ slug, data }) => {
 
   return (
     <Base
-      title={strip(marked.parse(title))}
+      title={strip(title)}
       description={
         description ? strip(description) : strip(content.slice(0, 120))
       }
