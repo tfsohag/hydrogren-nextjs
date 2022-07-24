@@ -20,7 +20,7 @@ const Category = ({ category, post }) => {
 export default Category;
 
 // category page routes
-export function getStaticPaths() {
+export const getStaticPaths = () => {
   const allCategories = getAllCategory("content/posts");
 
   const paths = allCategories.map((category) => ({
@@ -30,7 +30,7 @@ export function getStaticPaths() {
   }));
 
   return { paths, fallback: false };
-}
+};
 
 // category page data
 export const getStaticProps = ({ params }) => {
