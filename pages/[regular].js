@@ -1,16 +1,16 @@
 import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
-import Regular from "@layouts/Regular";
-import { getAllSlug, getDefaultPage } from "@lib/contents";
+import Default from "@layouts/Default";
+import { getAllSlug, getRegularPage } from "@lib/contents";
 import { strip } from "@lib/utils/strip";
 import { marked } from "marked";
 
 // for all regular pages
-const RegularPages = ({ slug, pageData }) => {
+const RegularPages = ({ slug, data }) => {
   const { title, meta_title, description, image, noindex, canonical } =
-    pageData.frontmatter;
-  const { content } = pageData;
+    data.frontmatter;
+  const { content } = data;
 
   return (
     <Base
@@ -24,11 +24,11 @@ const RegularPages = ({ slug, pageData }) => {
       canonical={canonical}
     >
       {slug === "contact" ? (
-        <Contact contact={pageData} />
+        <Contact data={data} />
       ) : slug === "about" ? (
-        <About about={pageData} />
+        <About data={data} />
       ) : (
-        <Regular regularPages={pageData} />
+        <Default data={data} />
       )}
     </Base>
   );
@@ -40,7 +40,7 @@ export const getStaticPaths = async () => {
   const slugs = getAllSlug("content");
   const paths = slugs.map((slug) => ({
     params: {
-      defaultPage: slug,
+      regular: slug,
     },
   }));
 
@@ -52,13 +52,13 @@ export const getStaticPaths = async () => {
 
 // for regular page data
 export const getStaticProps = async ({ params }) => {
-  const { defaultPage } = params;
-  const allPages = await getDefaultPage(`content/${defaultPage}`);
+  const { regular } = params;
+  const allPages = await getRegularPage(`content/${regular}`);
 
   return {
     props: {
-      slug: defaultPage,
-      pageData: allPages,
+      slug: regular,
+      data: allPages,
     },
   };
 };

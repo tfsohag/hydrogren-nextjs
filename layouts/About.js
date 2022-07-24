@@ -3,8 +3,8 @@ import { marked } from "marked";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 
-const About = ({ about }) => {
-  const { frontmatter, mdxSource } = about;
+const About = ({ data }) => {
+  const { frontmatter, mdxSource } = data;
 
   return (
     <section className="section">

@@ -2,7 +2,6 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/dateformat";
-
 import Posts from "@partials/Posts";
 
 const Home = ({ post, postIndex }) => {

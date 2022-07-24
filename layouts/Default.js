@@ -1,7 +1,7 @@
 import { marked } from "marked";
 
-const Regular = ({ regularPages }) => {
-  const { frontmatter, content } = regularPages;
+const Default = ({ data }) => {
+  const { frontmatter, content } = data;
   return (
     <section className="section">
       <div className="container">
@@ -17,4 +17,4 @@ const Regular = ({ regularPages }) => {
   );
 };
 
-export default Regular;
+export default Default;
