@@ -1,5 +1,5 @@
 import { dateFormat } from "@lib/utils/dateformat";
-import { strip } from "@lib/utils/strip";
+import { plainify } from "@lib/utils/textconverter";
 import { shortcodes } from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
@@ -11,8 +11,8 @@ const PostSingle = ({ frontmatter, content, mdxSource }) => {
 
   return (
     <Base
-      title={strip(title)}
-      description={description ? description : strip(content.slice(0, 120))}
+      title={plainify(title)}
+      description={description ? description : plainify(content.slice(0, 120))}
     >
       <section className="section">
         <div className="container">
