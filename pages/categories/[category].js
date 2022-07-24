@@ -3,12 +3,12 @@ import { getSinglePages } from "@lib/contents";
 import { getAllCategory } from "@lib/utils/category";
 import { kebabCase } from "@lib/utils/slugger";
 import Posts from "@partials/Posts";
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
+// import fs from "fs";
+// import matter from "gray-matter";
+// import path from "path";
 
 const Category = ({ category, post }) => {
-  const postCategory = post.filter((post) => post.length > 0);
+  // const postCategory = post.filter((post) => post.length > 0);
 
   return (
     <Base title={String(category)}>
@@ -44,7 +44,7 @@ const Category = ({ category, post }) => {
           Showing posts from {category} category
         </h1>
       </div>
-      <Posts className={"section pt-0"} post={postCategory[0]} />
+      <Posts className="section pt-0" post={post} />
     </Base>
   );
 };
@@ -52,11 +52,11 @@ const Category = ({ category, post }) => {
 export default Category;
 
 export async function getStaticPaths() {
-  const category = getAllCategory("content/posts");
+  const allCategories = getAllCategory("content/posts");
 
-  const paths = category.map((d) => ({
+  const paths = allCategories.map((category) => ({
     params: {
-      category: d,
+      category: category,
     },
   }));
 
@@ -64,34 +64,11 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps = ({ params }) => {
-  const allFiles = fs.readdirSync(path.join("content/posts"));
-  const file = allFiles.filter((f) => f.match(/^[a-z]/));
-  const posts = file.map((file) => {
-    const metaDataWithFrontMatter = fs.readFileSync(
-      path.join("content/posts", file),
-      "utf-8"
-    );
-    const { data: frontmatter, content } = matter(metaDataWithFrontMatter);
+  const allPosts = getSinglePages("content/posts");
 
-    const filterByCategory = frontmatter.categories.filter(
-      (c) => kebabCase(c) == params.category
-    );
-
-    const allPosts = getSinglePages("content/posts");
-    const data = allPosts.filter((e) => {
-      return e.category.some((a) => {
-        return filterByCategory.indexOf(a) != -1;
-      });
-    });
-
-    return data;
-  });
-
-  const post = posts.filter((p) => p.length > 0);
-
-  const category = post[0].map((p) =>
-    p.frontmatter.categories.filter((c) => kebabCase(c) == params.category)
+  const posts = allPosts.filter((data) =>
+    data.frontmatter.categories.includes(params.category)
   );
 
-  return { props: { post: posts, category: category[0] } };
+  return { props: { post: posts, category: params.category } };
 };
