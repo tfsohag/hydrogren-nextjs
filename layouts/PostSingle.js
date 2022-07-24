@@ -18,15 +18,15 @@ const PostSingle = ({ frontmatter, content, mdxSource }) => {
         <div className="container">
           <div className="mb-4">
             <p>{dateFormat(new Date(date))}</p>
-            <h1>{title}</h1>
-            {image && (
-              <Image src={image} height="200" width="200" alt={title} />
-            )}
             {categories.map((category, i) => (
               <Link key={`category-${i}`} href={`/categories/${category}`}>
                 <a className="mr-4">{category}</a>
               </Link>
             ))}
+            <h1>{title}</h1>
+            {image && (
+              <Image src={image} height="400" width="1400" alt={title} />
+            )}
             <div className="content">
               <MDXRemote {...mdxSource} components={shortcodes} />
             </div>
