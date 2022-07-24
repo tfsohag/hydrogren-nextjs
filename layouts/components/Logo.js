@@ -2,7 +2,7 @@ import config from "@config/config.json";
 import Image from "next/image";
 import Link from "next/link";
 
-function Logo() {
+const Logo = () => {
   // destructuring items from config object
   const { baseURL, logo, logo_width, logo_text, title } = config.site;
   return (
@@ -18,6 +18,6 @@ function Logo() {
       </a>
     </Link>
   );
-}
+};
 
 export default Logo;
