@@ -1,22 +1,17 @@
+import { markdownify } from "@lib/utils/textconverter";
 import { shortcodes } from "@shortcodes/all";
-import { marked } from "marked";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 
 const About = ({ data }) => {
   const { frontmatter, mdxSource } = data;
+  const { title, image } = frontmatter;
 
   return (
     <section className="section">
       <div className="container">
-        <h2
-          dangerouslySetInnerHTML={{
-            __html: marked.parseInline(frontmatter.title),
-          }}
-        />
-        {frontmatter.image && (
-          <Image src={frontmatter.image} width={412} height={545} alt="image" />
-        )}
+        {markdownify(title, "h1")}
+        {image && <Image src={image} width={412} height={545} alt={title} />}
         <div className="content">
           <MDXRemote {...mdxSource} components={shortcodes} />
         </div>

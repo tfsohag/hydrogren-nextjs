@@ -11,8 +11,12 @@ const Home = ({ post, banner }) => {
   const { title } = config.site;
   return (
     <Base title={title}>
-      {markdownify(banner.title, "h1")}
-      <Posts className="section" post={sortPostByDate.slice(0, showPost)} />
+      <div className="section">
+        <div className="container">
+          {markdownify(banner.title, "h1")}
+          <Posts className="section" post={sortPostByDate.slice(0, showPost)} />
+        </div>
+      </div>
     </Base>
   );
 };

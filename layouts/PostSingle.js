@@ -17,7 +17,7 @@ const PostSingle = ({ frontmatter, content, mdxSource }) => {
       <section className="section">
         <div className="container">
           <div className="mb-4">
-            <span>{dateFormat(new Date(date))}</span>
+            <p>{dateFormat(new Date(date))}</p>
             <h1>{title}</h1>
             {image && (
               <Image src={image} height="200" width="200" alt={title} />
