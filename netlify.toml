@@ -12,7 +12,7 @@
 node_bundler = "esbuild"
 included_files = ["content/*.md", "pages/**"]
 
-[[redirects]]
-from = "*"
-to = "/404"
-status = 404
+# [[redirects]]
+# from = "*"
+# to = "/404"
+# status = 404
