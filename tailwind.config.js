@@ -1,12 +1,18 @@
 const theme = require("./config/theme.json");
-const fontPrimary = theme.fonts.font_family.primary
-  .replace(/\+/g, " ")
-  .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-const fontPrimaryType = theme.fonts.font_family.primary_type;
-const fontSecondary = theme.fonts.font_family.secondary
-  .replace(/\+/g, " ")
-  .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
-const fontSecondaryType = theme.fonts.font_family.secondary_type;
+
+let fontPrimary, fontPrimaryType, fontSecondary, fontSecondaryType;
+if (theme.fonts.font_family.primary) {
+  fontPrimary = theme.fonts.font_family.primary
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
+  fontPrimaryType = theme.fonts.font_family.primary_type;
+}
+if (theme.fonts.font_family.secondary) {
+  fontSecondary = theme.fonts.font_family.secondary
+    .replace(/\+/g, " ")
+    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;]+/gi, "");
+  fontSecondaryType = theme.fonts.font_family.secondary_type;
+}
 const font_base = Number(theme.fonts.font_size.base.replace("px", ""));
 const font_scale = Number(theme.fonts.font_size.scale);
 const h6 = font_base / font_base;

@@ -4,12 +4,18 @@ import Link from "next/link";
 
 const Logo = () => {
   // destructuring items from config object
-  const { baseURL, logo, logo_width, logo_text, title } = config.site;
+  const { baseURL, logo, logo_width, logo_height, logo_text, title } =
+    config.site;
   return (
     <Link href={baseURL} passHref>
       <a className="block">
         {logo ? (
-          <Image width={logo_width} src={logo} alt={title} layout="fill" />
+          <Image
+            width={logo_width}
+            height={logo_height}
+            src={logo}
+            alt={title}
+          />
         ) : logo_text ? (
           logo_text
         ) : (
