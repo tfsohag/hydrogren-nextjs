@@ -8,6 +8,11 @@
 # NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Include all files in all functions
-[functions]
-node_bundler = "esbuild"
-included_files = ["content/*.md", "pages/**"]
+# [functions]
+# node_bundler = "esbuild"
+# included_files = ["content/*.md", "pages/**"]
+
+[[redirects]]
+from = "*"
+to = "/404"
+status = 301
