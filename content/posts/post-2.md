@@ -1,5 +1,5 @@
 ---
-title: Better tests with "Testing Hooks" pattern
+title: Blog Post 2
 date: "2021-01-17T05:00:00Z"
 categories: ["seo","development"]
 draft: false

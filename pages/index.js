@@ -14,7 +14,7 @@ const Home = ({ post, banner }) => {
       <div className="section">
         <div className="container">
           {markdownify(banner.title, "h1")}
-          <Posts className="section" post={sortPostByDate.slice(0, showPost)} />
+          <Posts post={sortPostByDate.slice(0, showPost)} />
         </div>
       </div>
     </Base>

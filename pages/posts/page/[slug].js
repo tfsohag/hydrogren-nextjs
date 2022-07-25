@@ -2,6 +2,7 @@ import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getAllSlug, getListPage, getSinglePages } from "@lib/contents";
+import { markdownify } from "@lib/utils/textconverter";
 import Posts from "@partials/Posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";
@@ -13,15 +14,18 @@ const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
   const numOfPage = Math.ceil(allBlogs.length / pagination);
   const currentPosts = allBlogs.slice(indexOfFirstPost, indexOfLastPost);
 
+  const { frontmatter, content } = blogIndex;
+  const { title } = frontmatter;
+
   return (
     <Base title="blog">
-      <Posts
-        post={currentPosts}
-        postIndex={blogIndex}
-        index={index}
-        className="section"
-      />
-      <Pagination numOfPage={numOfPage} page={page} />
+      <section className="section">
+        <div className="container">
+          {markdownify(title, "h1")}
+          <Posts post={currentPosts} postIndex={blogIndex} index={index} />
+          <Pagination numOfPage={numOfPage} page={page} />
+        </div>
+      </section>
     </Base>
   );
 };

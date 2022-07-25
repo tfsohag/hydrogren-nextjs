@@ -1,7 +1,7 @@
 ---
-title: A developer's guide to e-commerce
+title: Blog Post 1
 date: 2022-04-04T05:00:00Z
-image: /images/mehedi.png
+image: 
 categories: ["development", "design"]
 draft: false
 ---

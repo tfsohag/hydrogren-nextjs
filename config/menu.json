@@ -30,12 +30,12 @@
       "url": "/elements"
     },
     {
-      "name": "Privacy Policy",
-      "url": "/privacy-policy"
+      "name": "About",
+      "url": "/about"
     },
     {
-      "name": "Terms and Conditions",
-      "url": "/terms-conditions"
+      "name": "Contact",
+      "url": "/contact"
     }
   ]
 }
