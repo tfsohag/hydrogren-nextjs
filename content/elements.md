@@ -121,8 +121,6 @@ You can also use raw HTML in your Markdown, and it'll mostly work pretty well.
 
 ### Tables
 
-Colons can be used to align columns.
-
 | Tables        |      Are      |  Cool |
 | ------------- | :-----------: | ----: |
 | col 3 is      | right-aligned | $1600 |

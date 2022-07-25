@@ -1,6 +1,8 @@
 import Link from "next/link";
+import React from "react";
 
 const Pagination = ({ page, numOfPage }) => {
+  const indexPageLink = page === 2;
   const hasPrevPage = page > 1;
   const hasNextPage = numOfPage > page;
 
@@ -16,8 +18,11 @@ const Pagination = ({ page, numOfPage }) => {
     >
       {/* previous */}
       {hasPrevPage ? (
-        <Link href={`/posts/page/${page - 1}`} passHref>
-          <a className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50">
+        <Link
+          href={indexPageLink ? `/posts` : `/posts/page/${page - 1}`}
+          passHref
+        >
+          <a className="border border-primary px-2 py-2 text-text">
             <span className="sr-only">Previous</span>
             <svg
               className="h-5 w-5"
@@ -35,7 +40,7 @@ const Pagination = ({ page, numOfPage }) => {
           </a>
         </Link>
       ) : (
-        <span className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50">
+        <span className="border border-primary px-2 py-2 text-text">
           <span className="sr-only">Previous</span>
           <svg
             className="h-5 w-5"
@@ -55,24 +60,31 @@ const Pagination = ({ page, numOfPage }) => {
 
       {/* page index */}
       {pageList.map((pagination, i) => (
-        <Link key={`page-${i}`} href={`/posts/page/${pagination}`}>
-          <a
-            aria-current="page"
-            className={`relative z-10 inline-flex items-center border  ${
-              pagination == page
-                ? "bg-indigo-50 text-indigo-600"
-                : "border-gray-300 text-gray-500"
-            } px-4 py-2 text-sm font-medium `}
-          >
-            {pagination}
-          </a>
-        </Link>
+        <React.Fragment key={`page-${i}`}>
+          {pagination === page ? (
+            <span
+              aria-current="page"
+              className={`border border-primary bg-primary px-4 py-2 text-white`}
+            >
+              {pagination}
+            </span>
+          ) : (
+            <Link href={i === 0 ? `/posts` : `/posts/page/${pagination}`}>
+              <a
+                aria-current="page"
+                className={`border border-primary px-4 py-2 text-text`}
+              >
+                {pagination}
+              </a>
+            </Link>
+          )}
+        </React.Fragment>
       ))}
 
       {/* next page */}
       {hasNextPage ? (
         <Link href={`/posts/page/${page + 1}`} passHref>
-          <a className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50">
+          <a className="border border-primary px-2 py-2 text-text">
             <span className="sr-only">Next</span>
             <svg
               className="h-5 w-5"
@@ -90,7 +102,7 @@ const Pagination = ({ page, numOfPage }) => {
           </a>
         </Link>
       ) : (
-        <span className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50">
+        <span className="border border-primary px-2 py-2 text-text">
           <span className="sr-only">Next</span>
           <svg
             className="h-5 w-5"
