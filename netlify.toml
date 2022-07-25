@@ -15,4 +15,4 @@ included_files = ["content/*.md", "pages/**"]
 [[redirects]]
 from = "*"
 to = "/404"
-status = 301
+status = 404
