@@ -1,20 +1,14 @@
 // navbar toggler
 input#nav-toggle:checked ~ label#show-button {
-  display: none;
+  @apply hidden;
 }
 
 input#nav-toggle:checked ~ label#hide-button {
-  display: flex;
-  @media screen and (min-width: 640px) {
-    display: none !important;
-  }
+  @apply flex md:hidden;
 }
 
 input#nav-toggle:checked ~ #nav-menu {
-  display: block;
-  @media screen and (min-width: 640px) {
-    display: flex !important;
-  }
+  @apply block md:flex;
 }
 
 // navbar items

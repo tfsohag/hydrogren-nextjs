@@ -78,7 +78,7 @@ const Header = () => {
             </React.Fragment>
           ))}
         </ul>
-        <div className="order-1 sm:order-2">
+        <div className="order-1 ml-auto md:order-2 md:ml-0">
           <IoSearch />
         </div>
       </nav>
