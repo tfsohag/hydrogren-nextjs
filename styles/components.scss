@@ -15,10 +15,11 @@
 
 // social icon style
 .social-icons {
+  @apply space-x-4;
   li {
-    @apply mx-2 inline-block last:mr-0;
+    @apply inline-block;
     a {
-      @apply block h-9 w-9 rounded-full bg-primary text-center text-white;
+      @apply block h-9 w-9 rounded-full border bg-primary text-center text-white;
       svg {
         @apply m-auto h-9;
       }

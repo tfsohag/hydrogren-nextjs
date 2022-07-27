@@ -13,6 +13,7 @@ input#nav-toggle:checked ~ #nav-menu {
 
 // navbar items
 .navbar {
+  @apply text-center;
 }
 
 .nav-item {
