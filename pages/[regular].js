@@ -3,7 +3,6 @@ import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
 import { getAllSlug, getRegularPage } from "@lib/contents";
-import { plainify } from "@lib/utils/textconverter";
 
 // for all regular pages
 const RegularPages = ({ slug, data }) => {
@@ -13,11 +12,9 @@ const RegularPages = ({ slug, data }) => {
 
   return (
     <Base
-      title={plainify(title)}
-      description={
-        description ? plainify(description) : plainify(content.slice(0, 120))
-      }
-      meta_title={plainify(meta_title)}
+      title={title}
+      description={description ? description : content.slice(0, 120)}
+      meta_title={meta_title}
       image={image}
       noindex={noindex}
       canonical={canonical}
