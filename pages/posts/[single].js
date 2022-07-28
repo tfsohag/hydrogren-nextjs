@@ -2,7 +2,7 @@ import PostSingle from "@layouts/PostSingle";
 import { getAllSlug, getSinglePages } from "@lib/contents";
 import { serialize } from "next-mdx-remote/serialize";
 
-const Article = ({ post, mdxSource }) => {
+const Article = ({ post, mdxContent }) => {
   const { frontmatter, slug, content } = post[0];
 
   return (
@@ -10,7 +10,7 @@ const Article = ({ post, mdxSource }) => {
       frontmatter={frontmatter}
       content={content}
       slug={slug}
-      mdxSource={mdxSource}
+      mdxContent={mdxContent}
     />
   );
 };
@@ -33,13 +33,13 @@ export const getStaticProps = async ({ params }) => {
   const { single } = params;
   const allBlogs = getSinglePages("content/posts");
   const singlePost = allBlogs.filter((p) => p.slug == single);
-  const mdxSource = await serialize(singlePost[0].content);
+  const mdxContent = await serialize(singlePost[0].content);
 
   return {
     props: {
       post: singlePost,
       slug: single,
-      mdxSource: mdxSource,
+      mdxContent: mdxContent,
     },
   };
 };

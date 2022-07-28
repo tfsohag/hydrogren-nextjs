@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Base from "./Baseof";
 
-const PostSingle = ({ frontmatter, content, mdxSource }) => {
+const PostSingle = ({ frontmatter, content, mdxContent }) => {
   const { description, title, date, image, categories } = frontmatter;
 
   return (
@@ -27,7 +27,7 @@ const PostSingle = ({ frontmatter, content, mdxSource }) => {
               <Image src={image} height="400" width="1400" alt={title} />
             )}
             <div className="content">
-              <MDXRemote {...mdxSource} components={shortcodes} />
+              <MDXRemote {...mdxContent} components={shortcodes} />
             </div>
           </div>
         </div>

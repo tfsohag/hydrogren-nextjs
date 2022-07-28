@@ -1,7 +1,7 @@
 import { markdownify } from "@lib/utils/textConverter";
 
 const Contact = ({ data }) => {
-  const { frontmatter, mdxSource } = data;
+  const { frontmatter, mdxContent } = data;
   const { title } = frontmatter;
 
   return (

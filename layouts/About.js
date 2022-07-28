@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
 
 const About = ({ data }) => {
-  const { frontmatter, mdxSource } = data;
+  const { frontmatter, mdxContent } = data;
   const { title, image } = frontmatter;
 
   return (
@@ -13,7 +13,7 @@ const About = ({ data }) => {
         {markdownify(title, "h1")}
         {image && <Image src={image} width={412} height={545} alt={title} />}
         <div className="content">
-          <MDXRemote {...mdxSource} components={shortcodes} />
+          <MDXRemote {...mdxContent} components={shortcodes} />
         </div>
       </div>
     </section>

@@ -58,7 +58,7 @@ export const getStaticProps = async ({ params }) => {
   const allBlogs = getSinglePages("content/posts");
   const blogIndex = await getListPage("content/posts");
 
-  const mdxSource = await serialize(blogIndex.content);
+  const mdxContent = await serialize(blogIndex.content);
 
   return {
     props: {
@@ -66,7 +66,7 @@ export const getStaticProps = async ({ params }) => {
       allBlogs: allBlogs,
       page: page,
       blogIndex: blogIndex,
-      mdxSource,
+      mdxContent,
     },
   };
 };
