@@ -19,7 +19,7 @@ const Document = () => {
         />
         <link
           href={`https://fonts.googleapis.com/css2?family=${pf}${
-            sf && "&family=" + sf
+            sf ? "&family=" + sf : ""
           }&display=swap`}
           rel="stylesheet"
         />

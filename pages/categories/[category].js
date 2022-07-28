@@ -1,12 +1,12 @@
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
-import { getAllCategory } from "@lib/utils/category";
+import { getTaxonomy } from "@lib/utils/taxonomy";
 import Posts from "@partials/Posts";
 
 // category page
 const Category = ({ category, post }) => {
   return (
-    <Base title={String(category)}>
+    <Base title={category}>
       <div className="section">
         <div className="container">
           <h1>Showing posts from {category} category</h1>
@@ -21,7 +21,7 @@ export default Category;
 
 // category page routes
 export const getStaticPaths = () => {
-  const allCategories = getAllCategory("content/posts");
+  const allCategories = getTaxonomy("content/posts", "categories");
 
   const paths = allCategories.map((category) => ({
     params: {

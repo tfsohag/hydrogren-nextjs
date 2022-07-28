@@ -20,7 +20,7 @@ const Header = () => {
         <label
           id="show-button"
           htmlFor="nav-toggle"
-          className="order-2 flex cursor-pointer items-center sm:order-1 sm:hidden"
+          className="order-2 flex cursor-pointer items-center md:order-1 md:hidden"
         >
           <svg className="h-6 fill-current" viewBox="0 0 20 20">
             <title>Menu Open</title>
@@ -30,7 +30,7 @@ const Header = () => {
         <label
           id="hide-button"
           htmlFor="nav-toggle"
-          className="order-2 hidden cursor-pointer items-center sm:order-1"
+          className="order-2 hidden cursor-pointer items-center md:order-1"
         >
           <svg className="h-6 fill-current" viewBox="0 0 20 20">
             <title>Menu Close</title>
@@ -44,7 +44,7 @@ const Header = () => {
 
         <ul
           id="nav-menu"
-          className="navbar order-3 hidden w-full sm:order-1 sm:flex sm:w-auto sm:space-x-2"
+          className="navbar order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-2"
         >
           {main.map((menu, i) => (
             <React.Fragment key={`menu-${i}`}>
@@ -56,7 +56,7 @@ const Header = () => {
                       <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                     </svg>
                   </a>
-                  <ul className="nav-dropdown-list hidden group-hover:block sm:invisible sm:absolute sm:block sm:opacity-0 sm:group-hover:visible sm:group-hover:opacity-100">
+                  <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                     {menu.children.map((child, i) => (
                       <li className="nav-dropdown-item" key={`children-${i}`}>
                         <Link href={child.url} passHref>
@@ -78,7 +78,7 @@ const Header = () => {
             </React.Fragment>
           ))}
         </ul>
-        <div className="order-1 ml-auto md:order-2 md:ml-0">
+        <div className="order-1 ml-auto pr-3 md:order-2 md:ml-0">
           <IoSearch />
         </div>
       </nav>
