@@ -5,15 +5,15 @@ import { sortByDate } from "@lib/utils/sortFunctions";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 
-const Home = ({ post, banner, data }) => {
+const Home = ({ post, banner }) => {
   const sortPostByDate = sortByDate(post);
   const showPost = 4;
   const { title } = config.site;
   return (
     <Base title={title}>
       <div className="section">
-        <div className="container">
-          {markdownify(banner.title, "h1")}
+        <div className="container text-center">
+          {markdownify(banner.title, "h1", "mb-8")}
           <Posts post={sortPostByDate.slice(0, showPost)} />
         </div>
       </div>
