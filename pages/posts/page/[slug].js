@@ -2,7 +2,7 @@ import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getAllSlug, getListPage, getSinglePages } from "@lib/contents";
-import { markdownify } from "@lib/utils/textconverter";
+import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";

@@ -1,6 +1,6 @@
 import Base from "@layouts/Baseof";
 import { getSinglePages } from "@lib/contents";
-import { getTaxonomy } from "@lib/utils/taxonomy";
+import { getTaxonomy } from "@lib/taxonomies";
 import Posts from "@partials/Posts";
 
 // category page

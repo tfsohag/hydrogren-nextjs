@@ -1,4 +1,4 @@
-import { markdownify } from "@lib/utils/textconverter";
+import { markdownify } from "@lib/utils/textConverter";
 import { shortcodes } from "@shortcodes/all";
 import { MDXRemote } from "next-mdx-remote";
 import Image from "next/image";
