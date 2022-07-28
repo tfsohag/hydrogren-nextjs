@@ -7,6 +7,7 @@ import Posts from "@partials/Posts";
 import { serialize } from "next-mdx-remote/serialize";
 import { useState } from "react";
 
+// blog pagination
 const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
   const [index] = useState(true);
   const indexOfLastPost = page * pagination;
@@ -32,6 +33,7 @@ const BlogPagination = ({ blogIndex, allBlogs, page, pagination }) => {
 
 export default BlogPagination;
 
+// get blog pagination slug
 export const getStaticPaths = () => {
   const allSlug = getAllSlug("content/posts", false);
   const { pagination } = config.settings;
@@ -52,12 +54,12 @@ export const getStaticPaths = () => {
   };
 };
 
+// get blog pagination content
 export const getStaticProps = async ({ params }) => {
   const page = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const allBlogs = getSinglePages("content/posts");
   const blogIndex = await getListPage("content/posts");
-
   const mdxContent = await serialize(blogIndex.content);
 
   return {
