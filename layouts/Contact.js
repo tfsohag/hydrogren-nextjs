@@ -1,4 +1,4 @@
-import { markdownify } from "@lib/utils/textconverter";
+import { markdownify } from "@lib/utils/textConverter";
 
 const Contact = ({ data }) => {
   const { frontmatter } = data;

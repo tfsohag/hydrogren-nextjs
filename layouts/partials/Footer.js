@@ -1,7 +1,7 @@
 import Social from "@components/Social";
 import config from "@config/config.json";
 import menu from "@config/menu.json";
-import { markdownify } from "@lib/utils/textconverter";
+import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 
 const Footer = () => {

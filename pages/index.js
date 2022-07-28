@@ -2,7 +2,7 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/sort";
-import { markdownify } from "@lib/utils/textconverter";
+import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 
 const Home = ({ post, banner }) => {
