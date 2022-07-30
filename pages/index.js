@@ -5,8 +5,8 @@ import { sortByDate } from "@lib/utils/sortFunctions";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 
-const Home = ({ post, banner }) => {
-  const sortPostByDate = sortByDate(post);
+const Home = ({ posts, banner }) => {
+  const sortPostByDate = sortByDate(posts);
   const showPost = 4;
   const { title } = config.site;
   return (
@@ -14,7 +14,7 @@ const Home = ({ post, banner }) => {
       <div className="section">
         <div className="container text-center">
           {markdownify(banner.title, "h1", "mb-8")}
-          <Posts post={sortPostByDate.slice(0, showPost)} />
+          <Posts posts={sortPostByDate.slice(0, showPost)} />
         </div>
       </div>
     </Base>
@@ -28,12 +28,12 @@ export const getStaticProps = async () => {
   const homepage = await getListPage("content");
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
-  const allPost = getSinglePages("content/posts");
+  const posts = getSinglePages("content/posts");
 
   return {
     props: {
       banner: banner,
-      post: allPost,
+      posts: posts,
     },
   };
 };

@@ -1,9 +1,9 @@
 import Link from "next/link";
 
-const Posts = ({ post }) => {
+const Posts = ({ posts }) => {
   return (
     <>
-      {post.map((post, i) => (
+      {posts.map((post, i) => (
         <div key={`key-${i}`} className="mb-4">
           {/* <p>{dateFormat(new Date(post.frontmatter.date))}</p> */}
           <h3>

@@ -1,16 +1,16 @@
 import Base from "@layouts/Baseof";
-import { getSinglePages } from "@lib/contents";
+import { getAllPage, getSinglePages } from "@lib/contents";
 import { getTaxonomy } from "@lib/taxonomies";
 import Posts from "@partials/Posts";
 
 // category page
-const Category = ({ category, post }) => {
+const Category = ({ category, posts, authors }) => {
   return (
     <Base title={category}>
       <div className="section">
         <div className="container">
           <h1>Showing posts from {category} category</h1>
-          <Posts post={post} />
+          <Posts posts={posts} authors={authors} />
         </div>
       </div>
     </Base>
@@ -34,11 +34,13 @@ export const getStaticPaths = () => {
 
 // category page data
 export const getStaticProps = ({ params }) => {
-  const allPosts = getSinglePages("content/posts");
-
-  const posts = allPosts.filter((data) =>
-    data.frontmatter.categories.includes(params.category)
+  const posts = getSinglePages("content/posts");
+  const filterPosts = posts.filter((post) =>
+    post.frontmatter.categories.includes(params.category)
   );
+  const authors = getAllPage("content/authors");
 
-  return { props: { post: posts, category: params.category } };
+  return {
+    props: { posts: filterPosts, category: params.category, authors: authors },
+  };
 };

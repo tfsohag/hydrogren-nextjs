@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Next Tailwind Boilerplate",
-    "baseURL": "/",
+    "base_url": "/",
     "favicon": "/images/icons/favicon.ico",
     "logo": "",
     "logo_width": "200",
