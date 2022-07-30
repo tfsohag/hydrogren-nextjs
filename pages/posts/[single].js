@@ -1,5 +1,5 @@
 import PostSingle from "@layouts/PostSingle";
-import { getAllPage, getAllSlug, getSinglePages } from "@lib/contents";
+import { getSinglePages, getSinglePagesSlug } from "@lib/contents";
 import { parseMDX } from "@lib/utils/mdxParser";
 
 // post single layout
@@ -19,7 +19,7 @@ const Article = ({ post, authors, mdxContent, slug }) => {
 
 // get post single slug
 export const getStaticPaths = () => {
-  const allSlug = getAllSlug("content/posts");
+  const allSlug = getSinglePagesSlug("content/posts");
   const paths = allSlug.map((slug) => ({
     params: {
       single: slug,
@@ -37,7 +37,7 @@ export const getStaticProps = async ({ params }) => {
   const { single } = params;
   const posts = getSinglePages("content/posts");
   const post = posts.filter((p) => p.slug == single);
-  const authors = getAllPage("content/authors");
+  const authors = getSinglePages("content/authors");
   const mdxContent = await parseMDX(post[0].content);
 
   return {
