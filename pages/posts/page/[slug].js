@@ -16,12 +16,12 @@ const BlogPagination = ({
   postIndex,
   posts,
   authors,
-  pageIndex,
+  currentPage,
   pagination,
 }) => {
-  const indexOfLastPost = pageIndex * pagination;
+  const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const numOfPage = Math.ceil(posts.length / pagination);
+  const totalPages = Math.ceil(posts.length / pagination);
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
 
   const { frontmatter, content } = postIndex;
@@ -33,7 +33,7 @@ const BlogPagination = ({
         <div className="container">
           {markdownify(title, "h1", "h2 mb-8 text-center")}
           <Posts posts={currentPosts} authors={authors} />
-          <Pagination numOfPage={numOfPage} pageIndex={pageIndex} />
+          <Pagination totalPages={totalPages} currentPage={currentPage} />
         </div>
       </section>
     </Base>
@@ -46,10 +46,10 @@ export default BlogPagination;
 export const getStaticPaths = () => {
   const allSlug = getAllSlug("content/posts");
   const { pagination } = config.settings;
-  const numOfPage = Math.ceil(allSlug.length / pagination);
+  const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
-  for (let i = 0; i < numOfPage; i++) {
+  for (let i = 0; i < totalPages; i++) {
     paths.push({
       params: {
         slug: (i + 1).toString(),
@@ -65,7 +65,7 @@ export const getStaticPaths = () => {
 
 // get blog pagination content
 export const getStaticProps = async ({ params }) => {
-  const pageIndex = parseInt((params && params.slug) || 1);
+  const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const posts = getSinglePages("content/posts");
   const authors = getAllPage("content/authors");
@@ -77,7 +77,7 @@ export const getStaticProps = async ({ params }) => {
       pagination: pagination,
       posts: posts,
       authors: authors,
-      pageIndex: pageIndex,
+      currentPage: currentPage,
       postIndex: postIndex,
       mdxContent: mdxContent,
     },
