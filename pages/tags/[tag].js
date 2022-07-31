@@ -6,14 +6,14 @@ import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
-// category page
-const Category = ({ category, posts, authors }) => {
+// tag page
+const Tag = ({ tag, posts, authors }) => {
   return (
-    <Base title={category}>
+    <Base title={tag}>
       <div className="section">
         <div className="container max-w-[1000px]">
           {markdownify(
-            `Showing posts from ${category} category`,
+            `Showing posts from ${tag} tag`,
             "h1",
             "h2 mb-8 text-center"
           )}
@@ -24,30 +24,30 @@ const Category = ({ category, posts, authors }) => {
   );
 };
 
-export default Category;
+export default Tag;
 
-// category page routes
+// tag page routes
 export const getStaticPaths = () => {
-  const allCategories = getTaxonomy(`content/${blog_folder}`, "categories");
+  const allCategories = getTaxonomy(`content/${blog_folder}`, "tags");
 
-  const paths = allCategories.map((category) => ({
+  const paths = allCategories.map((tag) => ({
     params: {
-      category: category,
+      tag: tag,
     },
   }));
 
   return { paths, fallback: false };
 };
 
-// category page data
+// tag page data
 export const getStaticProps = ({ params }) => {
   const posts = getSinglePages(`content/${blog_folder}`);
   const filterPosts = posts.filter((post) =>
-    post.frontmatter.categories.includes(params.category)
+    post.frontmatter.tags.includes(params.tag)
   );
   const authors = getSinglePages("content/authors");
 
   return {
-    props: { posts: filterPosts, category: params.category, authors: authors },
+    props: { posts: filterPosts, tag: params.tag, authors: authors },
   };
 };

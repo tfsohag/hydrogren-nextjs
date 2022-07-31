@@ -1,7 +1,7 @@
 ---
 title: Wanda Maxima
 email: wandamaxima@gmail.com
-image: /images/authors/wanda.jpg
+image: 
 description: this is meta description
 social:
   facebook: https://www.facebook.com/

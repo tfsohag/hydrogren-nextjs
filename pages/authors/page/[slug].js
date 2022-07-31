@@ -4,32 +4,30 @@ import Base from "@layouts/Baseof";
 import { getListPage, getSinglePages, getSinglePagesSlug } from "@lib/contents";
 import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
-import Posts from "@partials/Posts";
-const { blog_folder } = config.settings;
+import Authors from "@partials/Authors";
 
 // blog pagination
-const BlogPagination = ({
-  postIndex,
-  posts,
+const AuthorPagination = ({
+  authorIndex,
   authors,
   currentPage,
   pagination,
 }) => {
-  const indexOfLastPost = currentPage * pagination;
-  const indexOfFirstPost = indexOfLastPost - pagination;
-  const totalPages = Math.round(posts.length / pagination);
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const { frontmatter, content } = postIndex;
+  const indexOfLastAuthor = currentPage * pagination;
+  const indexOfFirstAuthor = indexOfLastAuthor - pagination;
+  const totalPages = Math.round(authors.length / pagination);
+  const currentAuthors = authors.slice(indexOfFirstAuthor, indexOfLastAuthor);
+  const { frontmatter, content } = authorIndex;
   const { title } = frontmatter;
 
   return (
     <Base title={title}>
       <section className="section">
-        <div className="container">
-          {markdownify(title, "h1", "h2 mb-8 text-center")}
-          <Posts posts={currentPosts} authors={authors} />
+        <div className="container max-w-[1000px] text-center">
+          {markdownify(title, "h1", "h2 mb-16")}
+          <Authors authors={currentAuthors} />
           <Pagination
-            slug={blog_folder}
+            slug={"authors"}
             totalPages={totalPages}
             currentPage={currentPage}
           />
@@ -39,11 +37,11 @@ const BlogPagination = ({
   );
 };
 
-export default BlogPagination;
+export default AuthorPagination;
 
 // get blog pagination slug
 export const getStaticPaths = () => {
-  const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
+  const allSlug = getSinglePagesSlug("content/authors");
   const { pagination } = config.settings;
   const totalPages = Math.round(allSlug.length / pagination);
   let paths = [];
@@ -66,18 +64,16 @@ export const getStaticPaths = () => {
 export const getStaticProps = async ({ params }) => {
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
-  const posts = getSinglePages(`content/${blog_folder}`);
   const authors = getSinglePages("content/authors");
-  const postIndex = await getListPage(`content/${blog_folder}`);
-  const mdxContent = await parseMDX(postIndex.content);
+  const authorIndex = await getListPage("content/authors");
+  const mdxContent = await parseMDX(authorIndex.content);
 
   return {
     props: {
       pagination: pagination,
-      posts: posts,
       authors: authors,
       currentPage: currentPage,
-      postIndex: postIndex,
+      authorIndex: authorIndex,
       mdxContent: mdxContent,
     },
   };
