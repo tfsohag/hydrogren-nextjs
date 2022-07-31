@@ -2,6 +2,7 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import { getListPage, getSinglePages } from "@lib/contents";
 import { sortByDate } from "@lib/utils/sortFunctions";
+import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
@@ -13,6 +14,7 @@ const Home = ({ posts, authors }) => {
     <Base title={title}>
       <div className="section">
         <div className="container max-w-[1000px]">
+          {markdownify(title, "h1", "h2 mb-8 text-center")}
           <Posts posts={sortPostByDate.slice(0, showPost)} authors={authors} />
         </div>
       </div>

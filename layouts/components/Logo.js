@@ -8,7 +8,7 @@ const Logo = () => {
     config.site;
   return (
     <Link href={base_url} passHref>
-      <a className="block">
+      <a className="block text-h5 font-bold">
         {logo ? (
           <Image
             width={logo_width}

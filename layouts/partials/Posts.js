@@ -7,12 +7,9 @@ import Link from "next/link";
 const Posts = ({ posts, authors }) => {
   const { summary_length, blog_folder } = config.settings;
   return (
-    <div className="row space-y-16">
+    <div className="row">
       {posts.map((post, i) => (
-        <div
-          key={`key-${i}`}
-          className={i === 0 ? "col-12" : "col-12 sm:col-6"}
-        >
+        <div key={`key-${i}`} className="col-12 mb-8 sm:col-6">
           {post.frontmatter.image && (
             <Image
               className="rounded-lg"

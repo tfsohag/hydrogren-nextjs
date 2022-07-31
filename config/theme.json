@@ -5,7 +5,7 @@
       "secondary": "#ff0",
       "body": "#fff",
       "border": "#D5D5D5",
-      "light": "#fff",
+      "light": "#eee",
       "dark": "#000"
     },
     "text_color": {
