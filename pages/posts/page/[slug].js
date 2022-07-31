@@ -28,7 +28,11 @@ const BlogPagination = ({
         <div className="container">
           {markdownify(title, "h1", "h2 mb-8 text-center")}
           <Posts posts={currentPosts} authors={authors} />
-          <Pagination totalPages={totalPages} currentPage={currentPage} />
+          <Pagination
+            slug={"posts"}
+            totalPages={totalPages}
+            currentPage={currentPage}
+          />
         </div>
       </section>
     </Base>
