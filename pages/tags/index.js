@@ -9,7 +9,7 @@ const Tags = ({ tags }) => {
   return (
     <Base title={"tags"}>
       <section className="section">
-        <div className="container max-w-[1000px] text-center">
+        <div className="container text-center">
           {markdownify("Tags", "h1", "h2 mb-16")}
           <ul className="space-x-4">
             {tags.map((category, i) => (

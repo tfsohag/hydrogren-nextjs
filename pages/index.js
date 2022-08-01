@@ -13,7 +13,7 @@ const Home = ({ posts, authors }) => {
   return (
     <Base title={title}>
       <div className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           {markdownify(title, "h1", "h2 mb-8 text-center")}
           <Posts posts={sortPostByDate.slice(0, showPost)} authors={authors} />
         </div>

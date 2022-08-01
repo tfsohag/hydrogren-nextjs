@@ -14,7 +14,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
   return (
     <Base title={title} description={description}>
       <section className="section">
-        <div className="container max-w-[1000px]">
+        <div className="container">
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
             <ul className="mt-4 mb-8 text-text">
