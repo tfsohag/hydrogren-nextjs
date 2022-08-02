@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-const Pagination = ({ slug, currentPage, totalPages }) => {
+const Pagination = ({ section, currentPage, totalPages }) => {
   const indexPageLink = currentPage === 2;
   const hasPrevPage = currentPage > 1;
   const hasNextPage = totalPages > currentPage;
@@ -22,14 +22,16 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
           {hasPrevPage ? (
             <Link
               href={
-                indexPageLink ? `/${slug}` : `/${slug}/page/${currentPage - 1}`
+                indexPageLink
+                  ? `${section ? "/" + section : "/"}`
+                  : `${section ? "/" + section : ""}/page/${currentPage - 1}`
               }
               passHref
             >
               <a className="border border-primary px-2 py-2 text-text">
                 <span className="sr-only">Previous</span>
                 <svg
-                  className="h-5 w-5"
+                  className="mt-1 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -47,7 +49,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
             <span className="border border-primary px-2 py-2 text-text">
               <span className="sr-only">Previous</span>
               <svg
-                className="h-5 w-5"
+                className="mt-1 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -74,7 +76,11 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
                 </span>
               ) : (
                 <Link
-                  href={i === 0 ? `/${slug}` : `/${slug}/page/${pagination}`}
+                  href={
+                    i === 0
+                      ? `${section ? "/" + section : "/"}`
+                      : `${section ? "/" + section : ""}/page/${pagination}`
+                  }
                   passHref
                 >
                   <a
@@ -90,11 +96,14 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
 
           {/* next page */}
           {hasNextPage ? (
-            <Link href={`/${slug}/page/${currentPage + 1}`} passHref>
+            <Link
+              href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+              passHref
+            >
               <a className="border border-primary px-2 py-2 text-text">
                 <span className="sr-only">Next</span>
                 <svg
-                  className="h-5 w-5"
+                  className="mt-1 h-5 w-5"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
@@ -112,7 +121,7 @@ const Pagination = ({ slug, currentPage, totalPages }) => {
             <span className="border border-primary px-2 py-2 text-text">
               <span className="sr-only">Next</span>
               <svg
-                className="h-5 w-5"
+                className="mt-1 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
