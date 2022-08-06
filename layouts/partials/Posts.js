@@ -68,13 +68,13 @@ const Posts = ({ posts, authors }) => {
               </ul>
             </li>
           </ul>
-          <h3 className="mb-2">
+          <h2 className="h3 mb-2">
             <Link href={`/${blog_folder}/${post.slug}`} passHref>
               <a className="block hover:text-primary">
                 {post.frontmatter.title}
               </a>
             </Link>
-          </h3>
+          </h2>
           <p className="text-text">
             {post.content.slice(0, Number(summary_length))}...
           </p>
