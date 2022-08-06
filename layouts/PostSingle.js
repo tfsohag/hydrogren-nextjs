@@ -48,9 +48,7 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                     </Link>
                   ))}
               </li>
-              <li className="mb-2 mr-4 inline-block">
-                {dateFormat(new Date(date))}
-              </li>
+              <li className="mb-2 mr-4 inline-block">{dateFormat(date)}</li>
               <li className="mb-2 mr-4 inline-block">
                 <ul>
                   {categories.map((category, i) => (

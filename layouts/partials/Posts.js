@@ -52,7 +52,7 @@ const Posts = ({ posts, authors }) => {
                 ))}
             </li>
             <li className="mb-2 mr-4 inline-block">
-              {dateFormat(new Date(post.frontmatter.date))}
+              {dateFormat(post.frontmatter.date)}
             </li>
             <li className="mb-2 mr-4 inline-block">
               <ul>
