@@ -5,6 +5,7 @@ import {
   IoLogoBehance,
   IoLogoBitbucket,
   IoLogoCodepen,
+  IoLogoDiscord,
   IoLogoDribbble,
   IoLogoFacebook,
   IoLogoFoursquare,
@@ -17,6 +18,7 @@ import {
   IoLogoReddit,
   IoLogoRss,
   IoLogoSkype,
+  IoLogoSlack,
   IoLogoSnapchat,
   IoLogoSoundcloud,
   IoLogoTiktok,
@@ -38,6 +40,8 @@ const Social = ({ source, className }) => {
     linkedin,
     github,
     gitlab,
+    discord,
+    slack,
     medium,
     codepen,
     bitbucket,
@@ -143,6 +147,30 @@ const Social = ({ source, className }) => {
             rel="noopener noreferrer nofollow"
           >
             <IoLogoGitlab />
+          </a>
+        </li>
+      )}
+      {discord && (
+        <li className="inline-block">
+          <a
+            aria-label="discord"
+            href={discord}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoDiscord />
+          </a>
+        </li>
+      )}
+      {slack && (
+        <li className="inline-block">
+          <a
+            aria-label="slack"
+            href={slack}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <IoLogoSlack />
           </a>
         </li>
       )}
