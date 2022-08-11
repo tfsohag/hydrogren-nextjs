@@ -4,13 +4,7 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  experimental: { images: { allowFutureImage: true } },
 };
-
-// module.exports = {
-//   // images: {
-//   //   path: "/",
-//   // },
-//   nextConfig,
-// };
 
 module.exports = nextConfig;
