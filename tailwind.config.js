@@ -30,6 +30,17 @@ module.exports = {
     "./content/**/*.{md,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "540px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+    container: {
+      center: true,
+      padding: "1rem",
+    },
     extend: {
       colors: {
         primary: theme.colors.theme_color.primary,
@@ -63,7 +74,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("@tailwindcss/typography"), 
+    require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
     require("tailwind-bootstrap-grid")({ generateContainer: false }),
   ],
