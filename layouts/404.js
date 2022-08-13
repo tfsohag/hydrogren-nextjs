@@ -1,15 +1,7 @@
 import { markdownify } from "@lib/utils/textConverter";
-import { useRouter } from "next/router";
-// import { useEffect } from "react";
 
 const NotFound = ({ data }) => {
   const { frontmatter, content } = data;
-  const router = useRouter();
-
-  // useEffect(() => {
-  //   router.push("/404");
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
 
   return (
     <section className="section">

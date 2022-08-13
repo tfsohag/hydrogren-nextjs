@@ -57,14 +57,6 @@ export const getStaticProps = async ({ params }) => {
   const { regular } = params;
   const allPages = await getRegularPage("content", regular);
 
-  console.log(allPages);
-
-  if (!allPages) {
-    return {
-      notFound: true,
-    };
-  }
-
   return {
     props: {
       slug: regular,
