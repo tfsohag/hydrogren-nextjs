@@ -57,6 +57,10 @@ export const getStaticProps = async ({ params }) => {
   const { regular } = params;
   const allPages = await getRegularPage("content", regular);
 
+  if (allPages.frontmatter.layout === "") {
+    params.res.setHeader("Status", "404");
+  }
+
   return {
     props: {
       slug: regular,
