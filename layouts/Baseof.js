@@ -17,7 +17,7 @@ const Base = ({
   children,
 }) => {
   const { meta_image, meta_author, meta_description } = config.metadata;
-  const { base_url, favicon } = config.site;
+  const { base_url } = config.site;
   const router = useRouter();
 
   // import google font css
@@ -30,7 +30,7 @@ const Base = ({
         sf ? "&family=" + sf : ""
       }&display=swap`
     ).then((res) => res.text().then((css) => setFontcss(css)));
-  });
+  }, [pf, sf]);
 
   return (
     <>
@@ -42,29 +42,8 @@ const Base = ({
           )}
         </title>
 
-        {/* favicon */}
-        <link rel="shortcut icon" href={favicon} />
-
-        {/* google font css */}
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `${fontcss}`,
-          }}
-        />
-
         {/* canonical url */}
         {canonical && <link rel="canonical" href={canonical} itemProp="url" />}
-
-        {/* responsive meta */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=5"
-        />
 
         {/* noindex robots */}
         {noindex && <meta name="robots" content="noindex,nofollow" />}
