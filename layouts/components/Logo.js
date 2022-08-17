@@ -2,10 +2,11 @@ import config from "@config/config.json";
 import Image from "next/image";
 import Link from "next/link";
 
-const Logo = () => {
+const Logo = ({ src }) => {
   // destructuring items from config object
   const { base_url, logo, logo_width, logo_height, logo_text, title } =
     config.site;
+
   return (
     <Link href={base_url} passHref>
       <a
@@ -15,11 +16,11 @@ const Logo = () => {
           width: logo_width.replace("px", "") + "px",
         }}
       >
-        {logo ? (
+        {src || logo ? (
           <Image
             width={logo_width.replace("px", "") * 2}
             height={logo_height.replace("px", "") * 2}
-            src={logo}
+            src={src ? src : logo}
             alt={title}
             priority
           />

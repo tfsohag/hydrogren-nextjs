@@ -2,8 +2,8 @@
   "site": {
     "title": "Next Tailwind Boilerplate",
     "base_url": "/",
-    "favicon": "/images/icons/favicon.ico",
-    "logo": "",
+    "favicon": "/images/favicon.png",
+    "logo": "/images/logo.png",
     "logo_width": "200",
     "logo_height": "40",
     "logo_text": "Next Boilerplate"
