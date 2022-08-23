@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import PostSingle from "@layouts/PostSingle";
-import { getSinglePages, getSinglePagesSlug } from "@lib/contents";
+import { getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
 import { parseMDX } from "@lib/utils/mdxParser";
 const { blog_folder } = config.settings;
 

@@ -3,7 +3,7 @@ import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
-import { getRegularPage, getSinglePagesSlug } from "@lib/contents";
+import { getRegularPage, getSinglePagesSlug } from "@lib/contentParser";
 import { plainify } from "@lib/utils/textConverter";
 
 // for all regular pages
