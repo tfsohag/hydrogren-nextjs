@@ -11,13 +11,17 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply block md:flex;
 }
 
+.header {
+  @apply sticky top-0 z-50 bg-white py-2 dark:bg-darkmode-theme-dark;
+}
+
 // navbar items
 .navbar {
   @apply relative flex flex-wrap items-center justify-between;
 }
 
 .navbar-brand {
-  @apply text-xl font-semibold text-text-dark;
+  @apply text-xl font-semibold text-dark dark:text-darkmode-light;
   image {
     @apply max-h-full max-w-full;
   }
@@ -32,7 +36,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-link {
-  @apply p-3 text-lg font-semibold text-text-dark transition hover:text-primary md:p-4;
+  @apply p-3 text-lg font-semibold text-dark transition hover:text-primary dark:text-darkmode-light md:p-4;
 }
 
 .nav-dropdown {
@@ -40,7 +44,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-list {
-  @apply z-10 rounded-lg bg-white p-4 shadow transition;
+  @apply z-10 rounded-lg bg-white p-4 shadow dark:bg-darkmode-theme-dark;
 }
 
 .nav-dropdown-item {
@@ -48,12 +52,15 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-dropdown-link {
-  @apply min-w-[150px] py-1 text-lg font-semibold text-text-dark transition hover:text-primary;
+  @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary dark:text-darkmode-light dark:hover:text-primary;
 }
 
 // search style
+.search-icon {
+  @apply cursor-pointer p-2 text-xl text-dark hover:text-primary dark:text-darkmode-light;
+}
 .search-modal {
-  @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition md:h-full;
+  @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition dark:bg-theme-dark md:h-full;
   .form-input {
     @apply h-full w-full border-0 text-lg;
   }
