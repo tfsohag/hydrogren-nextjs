@@ -1,7 +1,9 @@
 import Logo from "@components/Logo";
 import ThemeSwitcher from "@components/ThemeSwitcher";
+import config from "@config/config.json";
 import menu from "@config/menu.json";
 import SearchModal from "@layouts/partials/SearchModal";
+import { useTheme } from "next-themes";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
@@ -13,6 +15,12 @@ const Header = () => {
   // states declaration
   const [navFixed, setNavFixed] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // logo source
+  const { logo, logo_darkmode } = config.site;
+  const { theme, resolvedTheme } = useTheme();
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const changeNavbarBackground = () => {
@@ -31,7 +39,13 @@ const Header = () => {
         <nav className="navbar container">
           {/* logo */}
           <div className="order-0">
-            <Logo />
+            <Logo
+              src={
+                mounted && (theme === "dark" || resolvedTheme === "dark")
+                  ? logo_darkmode
+                  : logo
+              }
+            />
           </div>
           {/* navbar toggler */}
           <input id="nav-toggle" type="checkbox" className="hidden" />
