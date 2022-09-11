@@ -8,6 +8,7 @@
       "@shortcodes/*": ["layouts/shortcodes/*"],
       "@config/*": ["config/*"],
       "@json/*": ["json/*"],
+      "@hook/*": ["hook/*"],
       "@lib/*": ["lib/*"]
     }
   }
