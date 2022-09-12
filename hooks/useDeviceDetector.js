@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 
-// DetectDevice(768)
-const DetectDevice = (size) => {
-  // getWindowDimensions
+export const useDeviceDetector = (size) => {
   const [windowSize, setWindowSize] = useState(size);
   useEffect(() => {
     function showViewport() {
@@ -18,5 +16,3 @@ const DetectDevice = (size) => {
 
   return windowSize;
 };
-
-export default DetectDevice;

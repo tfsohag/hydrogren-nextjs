@@ -10,6 +10,7 @@ const Home = ({ posts, authors }) => {
   const sortPostByDate = sortByDate(posts);
   const showPost = 4;
   const { title } = config.site;
+
   return (
     <Base title={title}>
       <div className="section">
