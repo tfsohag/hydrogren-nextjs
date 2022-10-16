@@ -1,7 +1,11 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getListPage, getSinglePages, getSinglePagesSlug } from "@lib/contentParser";
+import {
+  getListPage,
+  getSinglePages,
+  getSinglePagesSlug,
+} from "@lib/contentParser";
 import { parseMDX } from "@lib/utils/mdxParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
@@ -17,7 +21,7 @@ const BlogPagination = ({
 }) => {
   const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const totalPages = Math.round(posts.length / pagination);
+  const totalPages = Math.ceil(posts.length / pagination);
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
   const { frontmatter, content } = postIndex;
   const { title } = frontmatter;
@@ -45,7 +49,7 @@ export default BlogPagination;
 export const getStaticPaths = () => {
   const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
   const { pagination } = config.settings;
-  const totalPages = Math.round(allSlug.length / pagination);
+  const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
 
   for (let i = 1; i < totalPages; i++) {
