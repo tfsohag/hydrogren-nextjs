@@ -29,22 +29,20 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                     <Link
                       href={`/authors/${slugify(author.frontmatter.title)}`}
                       key={`author-${i}`}
-                      passHref
+                      className="inline-block hover:text-primary"
                     >
-                      <a className="inline-block hover:text-primary">
-                        {author.frontmatter.image && (
-                          <span className="mr-2 align-top">
-                            <Image
-                              src={author.frontmatter.image}
-                              alt={author.frontmatter.title}
-                              height={25}
-                              width={25}
-                              className="h-6 w-6 rounded-full"
-                            />
-                          </span>
-                        )}
-                        <span>{author.frontmatter.title}</span>
-                      </a>
+                      {author.frontmatter.image && (
+                        <span className="mr-2 align-top">
+                          <Image
+                            src={author.frontmatter.image}
+                            alt={author.frontmatter.title}
+                            height={25}
+                            width={25}
+                            className="h-6 w-6 rounded-full"
+                          />
+                        </span>
+                      )}
+                      <span>{author.frontmatter.title}</span>
                     </Link>
                   ))}
               </li>
@@ -53,10 +51,11 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
                 <ul>
                   {categories.map((category, i) => (
                     <li className="inline-block" key={`category-${i}`}>
-                      <Link href={`/categories/${slugify(category)}`} passHref>
-                        <a className="mr-3 hover:text-primary">
-                          &#9635; {humanize(category)}
-                        </a>
+                      <Link
+                        href={`/categories/${slugify(category)}`}
+                        className="mr-3 hover:text-primary"
+                      >
+                        &#9635; {humanize(category)}
                       </Link>
                     </li>
                   ))}
@@ -80,10 +79,11 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
               <ul className="mr-4 mb-4 space-x-3">
                 {tags.map((tag, i) => (
                   <li className="inline-block" key={`tag-${i}`}>
-                    <Link href={`/tags/${slugify(tag)}`} passHref>
-                      <a className="block rounded-lg bg-light px-4 py-2 font-semibold text-dark hover:text-primary">
-                        {humanize(tag)}
-                      </a>
+                    <Link
+                      href={`/tags/${slugify(tag)}`}
+                      className="block rounded-lg bg-light px-4 py-2 font-semibold text-dark hover:text-primary"
+                    >
+                      {humanize(tag)}
                     </Link>
                   </li>
                 ))}

@@ -52,7 +52,7 @@ const Header = () => {
           <label
             id="show-button"
             htmlFor="nav-toggle"
-            className="order-2 flex cursor-pointer items-center md:order-1 md:hidden"
+            className="order-2 flex cursor-pointer items-center md:hidden md:order-1"
           >
             <svg className="h-6 fill-current" viewBox="0 0 20 20">
               <title>Menu Open</title>
@@ -76,7 +76,7 @@ const Header = () => {
 
           <ul
             id="nav-menu"
-            className="navbar-nav order-3 hidden w-full md:order-1 md:flex md:w-auto md:space-x-2"
+            className="navbar-nav order-3 hidden w-full md:flex md:w-auto md:space-x-2 md:order-1"
           >
             {main.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
@@ -91,10 +91,11 @@ const Header = () => {
                     <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
                       {menu.children.map((child, i) => (
                         <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link href={child.url} passHref>
-                            <a className="nav-dropdown-link block">
-                              {child.name}
-                            </a>
+                          <Link
+                            href={child.url}
+                            className="nav-dropdown-link block"
+                          >
+                            {child.name}
                           </Link>
                         </li>
                       ))}
@@ -102,15 +103,15 @@ const Header = () => {
                   </li>
                 ) : (
                   <li className="nav-item">
-                    <Link href={menu.url} passHref>
-                      <a className="nav-link block">{menu.name}</a>
+                    <Link href={menu.url} className="nav-link block">
+                      {menu.name}
                     </Link>
                   </li>
                 )}
               </React.Fragment>
             ))}
           </ul>
-          <div className="order-1 ml-auto flex items-center md:order-2 md:ml-0">
+          <div className="order-1 ml-auto flex items-center md:ml-0 md:order-2">
             <ThemeSwitcher />
             <div
               className="search-icon"

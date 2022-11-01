@@ -14,10 +14,11 @@ const Categories = ({ categories }) => {
           <ul className="space-x-4">
             {categories.map((category, i) => (
               <li key={`category-${i}`} className="inline-block">
-                <Link href={`/categories/${category}`} passHref>
-                  <a className="rounded-lg bg-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white">
-                    &#8226; {humanize(category)}
-                  </a>
+                <Link
+                  href={`/categories/${category}`}
+                  className="rounded-lg bg-light px-4 py-2 text-dark transition hover:bg-primary hover:text-white"
+                >
+                  &#8226; {humanize(category)}
                 </Link>
               </li>
             ))}
