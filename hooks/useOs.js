@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-// useOs()
+// how to use
+// const macOS = useOs()
+// returns true/false
+
 const useOs = () => {
   // get Os
   const [os, setOs] = useState(false);

@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 
-// useWindow(768)
+// how to use
+// const mobile = useWindow(767) < 768
+// returns true/false
+
 const useWindow = (size) => {
   // getWindowDimensions
   const [windowSize, setWindowSize] = useState(size || 768);
