@@ -6,16 +6,15 @@ import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
 
-const Home = ({ posts, authors }) => {
+const Home = ({ banner, posts, authors }) => {
   const sortPostByDate = sortByDate(posts);
   const showPost = 4;
-  const { title } = config.site;
 
   return (
-    <Base title={title}>
+    <Base>
       <div className="section">
         <div className="container">
-          {markdownify(title, "h1", "h2 mb-8 text-center")}
+          {markdownify(banner.title, "h1", "h2 mb-8 text-center")}
           <Posts posts={sortPostByDate.slice(0, showPost)} authors={authors} />
         </div>
       </div>
