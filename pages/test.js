@@ -25,7 +25,7 @@ export default TestPage;
 
 // for regular page data
 export const getStaticProps = async () => {
-  const testPage = await getListPage("content/test");
+  const testPage = await getListPage("content/test/_index.md");
 
   return {
     props: {

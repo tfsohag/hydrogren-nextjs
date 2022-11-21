@@ -1,12 +1,7 @@
 import Pagination from "@components/Pagination";
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import {
-  getListPage,
-  getSinglePages,
-  getSinglePagesSlug,
-} from "@lib/contentParser";
-import { parseMDX } from "@lib/utils/mdxParser";
+import { getListPage, getSinglePage } from "@lib/contentParser";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
 const { blog_folder } = config.settings;
@@ -23,7 +18,7 @@ const BlogPagination = ({
   const indexOfFirstPost = indexOfLastPost - pagination;
   const totalPages = Math.ceil(posts.length / pagination);
   const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-  const { frontmatter, content } = postIndex;
+  const { frontmatter } = postIndex;
   const { title } = frontmatter;
 
   return (
@@ -47,7 +42,8 @@ export default BlogPagination;
 
 // get blog pagination slug
 export const getStaticPaths = () => {
-  const allSlug = getSinglePagesSlug(`content/${blog_folder}`);
+  const getAllSlug = getSinglePage(`content/${blog_folder}`);
+  const allSlug = getAllSlug.map((item) => item.slug);
   const { pagination } = config.settings;
   const totalPages = Math.ceil(allSlug.length / pagination);
   let paths = [];
@@ -70,10 +66,9 @@ export const getStaticPaths = () => {
 export const getStaticProps = async ({ params }) => {
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
-  const posts = getSinglePages(`content/${blog_folder}`);
-  const authors = getSinglePages("content/authors");
-  const postIndex = await getListPage(`content/${blog_folder}`);
-  const mdxContent = await parseMDX(postIndex.content);
+  const posts = getSinglePage(`content/${blog_folder}`);
+  const authors = getSinglePage("content/authors");
+  const postIndex = await getListPage(`content/${blog_folder}/_index.md`);
 
   return {
     props: {
@@ -82,7 +77,6 @@ export const getStaticProps = async ({ params }) => {
       authors: authors,
       currentPage: currentPage,
       postIndex: postIndex,
-      mdxContent: mdxContent,
     },
   };
 };

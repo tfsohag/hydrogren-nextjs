@@ -1,6 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
-import { getListPage, getSinglePages } from "@lib/contentParser";
+import { getListPage, getSinglePage } from "@lib/contentParser";
 import { sortByDate } from "@lib/utils/sortFunctions";
 import { markdownify } from "@lib/utils/textConverter";
 import Posts from "@partials/Posts";
@@ -26,11 +26,11 @@ export default Home;
 
 // for homepage data
 export const getStaticProps = async () => {
-  const homepage = await getListPage("content");
+  const homepage = await getListPage("content/_index.md");
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
-  const posts = getSinglePages(`content/${blog_folder}`);
-  const authors = getSinglePages("content/authors");
+  const posts = getSinglePage(`content/${blog_folder}`);
+  const authors = getSinglePage("content/authors");
 
   return {
     props: {

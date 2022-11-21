@@ -80,13 +80,10 @@ const Pagination = ({ section, currentPage, totalPages }) => {
                       : `${section ? "/" + section : ""}/page/${pagination}`
                   }
                   passHref
+                  aria-current="page"
+                  className={`border border-primary px-4 py-2 text-text`}
                 >
-                  <a
-                    aria-current="page"
-                    className={`border border-primary px-4 py-2 text-text`}
-                  >
-                    {pagination}
-                  </a>
+                  {pagination}
                 </Link>
               )}
             </React.Fragment>

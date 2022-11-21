@@ -3,7 +3,7 @@ import About from "@layouts/About";
 import Base from "@layouts/Baseof";
 import Contact from "@layouts/Contact";
 import Default from "@layouts/Default";
-import { getRegularPage, getSinglePagesSlug } from "@lib/contentParser";
+import { getRegularPage, getSinglePage } from "@lib/contentParser";
 
 // for all regular pages
 const RegularPages = ({ data }) => {
@@ -36,10 +36,10 @@ export default RegularPages;
 
 // for regular page routes
 export const getStaticPaths = async () => {
-  const slugs = getSinglePagesSlug("content");
-  const paths = slugs.map((slug) => ({
+  const slugs = getSinglePage("content");
+  const paths = slugs.map((item) => ({
     params: {
-      regular: slug,
+      regular: item.slug,
     },
   }));
 
@@ -52,7 +52,7 @@ export const getStaticPaths = async () => {
 // for regular page data
 export const getStaticProps = async ({ params }) => {
   const { regular } = params;
-  const allPages = await getRegularPage("content", regular);
+  const allPages = await getRegularPage(regular);
 
   return {
     props: {
