@@ -12,12 +12,12 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .header {
-  @apply sticky top-0 z-50 bg-white py-2 ;
+  // @apply sticky top-0 z-50;
 }
 
 // navbar items
 .navbar {
-  @apply relative flex flex-wrap items-center justify-between;
+  @apply relative ;
 }
 
 .navbar-brand {
@@ -31,12 +31,12 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply text-center md:text-left;
 }
 
-.nav-item {
-  @apply mx-3;
-}
-
 .nav-link {
-  @apply p-3 text-lg font-semibold text-dark transition hover:text-primary  md:p-4;
+  @apply px-3 py-[3px] text-lg text-text transition rounded-[6px] hover:bg-white/10 duration-200 ease-in-out;
+
+  &--active  {
+    @apply bg-white/10
+  }
 }
 
 .nav-dropdown {

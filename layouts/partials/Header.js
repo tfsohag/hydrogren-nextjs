@@ -16,6 +16,7 @@ const Header = () => {
   useEffect(() => {
     const matchRoute = menu.main.find((item) => item.url === router.asPath);
     const navList = [...menu.main];
+
     if (matchRoute) {
       if (matchRoute.url === "/") {
         const arr = categories.slice(0, 4);
@@ -24,20 +25,23 @@ const Header = () => {
       } else {
         setNavMenu(menu.main);
       }
-      return;
+    } else {
+      //if route not match
+      navList.splice(1, 0, ...categories);
+      navList.splice(navList.length - 2, menu.main.length - 1);
+      setNavMenu(navList);
     }
-
-    //if route not match
-    navList.splice(1, 0, ...categories);
-    navList.splice(navList.length - 2, menu.main.length - 1);
-    setNavMenu(navList);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath, menu.main, categories]);
 
   return (
     <>
-      <header className="header">
+      <header
+        className={`header ${
+          router.asPath !== "/" ? "mt-8 pt-12 pb-3" : "mt-12 pt-12 pb-3"
+        }`}
+      >
         <nav className="navbar container">
           {/* navbar toggler */}
           <input id="nav-toggle" type="checkbox" className="hidden" />
@@ -66,10 +70,30 @@ const Header = () => {
           </label>
           {/* /navbar toggler */}
           <div className="text-center">
-            {router.asPath !== "/" && <Link href="/">Back to Home</Link>}
+            {router.asPath !== "/" && (
+              <Link
+                className="mb-12  inline-flex items-center hover:text-primary"
+                href="/"
+              >
+                <svg
+                  className="mr-2"
+                  width="21"
+                  height="16"
+                  viewBox="0 0 21 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M.292892 7.29289c-.3905235.39053-.3905235 1.02369.0 1.41422L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711 8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8 8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107.928932 7.68054.538408 7.04738.538408 6.65685.928932L.292892 7.29289zM21 7H1V9H21V7z"
+                    fill="currentcolor"
+                  ></path>
+                </svg>
+                Back to Home
+              </Link>
+            )}
             <ul
               id="nav-menu"
-              className="navbar-nav order-3 hidden w-full md:flex md:w-auto md:space-x-2 md:order-1"
+              className="navbar-nav order-3 hidden w-full justify-center md:flex md:w-auto md:space-x-2 md:order-1"
             >
               {navMenu.map((menu, i) => (
                 <React.Fragment key={`menu-${i}`}>
@@ -102,7 +126,12 @@ const Header = () => {
                     </li>
                   ) : (
                     <li className="nav-item">
-                      <Link href={menu.url} className="nav-link block">
+                      <Link
+                        href={menu.url}
+                        className={`nav-link block ${
+                          router.asPath === menu.url ? "nav-link--active" : ""
+                        }`}
+                      >
                         {menu.name}
                       </Link>
                     </li>
