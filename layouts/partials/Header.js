@@ -21,14 +21,17 @@ const Header = () => {
         const arr = categories.slice(0, 4);
         navList.splice(1, 0, ...arr);
         setNavMenu(navList);
-        return;
+      } else {
+        setNavMenu(menu.main);
       }
+      return;
     }
 
     //if route not match
     navList.splice(1, 0, ...categories);
     navList.splice(navList.length - 2, menu.main.length - 1);
     setNavMenu(navList);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.asPath, menu.main, categories]);
 
@@ -62,44 +65,52 @@ const Header = () => {
             </svg>
           </label>
           {/* /navbar toggler */}
-
-          <ul
-            id="nav-menu"
-            className="navbar-nav order-3 hidden w-full md:flex md:w-auto md:space-x-2 md:order-1"
-          >
-            {navMenu.map((menu, i) => (
-              <React.Fragment key={`menu-${i}`}>
-                {menu.hasChildren ? (
-                  <li className="nav-item nav-dropdown group relative">
-                    <span className="nav-link inline-flex items-center">
-                      {menu.name}
-                      <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
-                    </span>
-                    <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
-                      {menu.children.map((child, i) => (
-                        <li className="nav-dropdown-item" key={`children-${i}`}>
-                          <Link
-                            href={child.url}
-                            className="nav-dropdown-link block"
+          <div className="text-center">
+            {router.asPath !== "/" && <Link href="/">Back to Home</Link>}
+            <ul
+              id="nav-menu"
+              className="navbar-nav order-3 hidden w-full md:flex md:w-auto md:space-x-2 md:order-1"
+            >
+              {navMenu.map((menu, i) => (
+                <React.Fragment key={`menu-${i}`}>
+                  {menu.hasChildren ? (
+                    <li className="nav-item nav-dropdown group relative">
+                      <span className="nav-link inline-flex items-center">
+                        {menu.name}
+                        <svg
+                          className="h-4 w-4 fill-current"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                        </svg>
+                      </span>
+                      <ul className="nav-dropdown-list hidden group-hover:block md:invisible md:absolute md:block md:opacity-0 md:group-hover:visible md:group-hover:opacity-100">
+                        {menu.children.map((child, i) => (
+                          <li
+                            className="nav-dropdown-item"
+                            key={`children-${i}`}
                           >
-                            {child.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : (
-                  <li className="nav-item">
-                    <Link href={menu.url} className="nav-link block">
-                      {menu.name}
-                    </Link>
-                  </li>
-                )}
-              </React.Fragment>
-            ))}
-          </ul>
+                            <Link
+                              href={child.url}
+                              className="nav-dropdown-link block"
+                            >
+                              {child.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ) : (
+                    <li className="nav-item">
+                      <Link href={menu.url} className="nav-link block">
+                        {menu.name}
+                      </Link>
+                    </li>
+                  )}
+                </React.Fragment>
+              ))}
+            </ul>
+          </div>
         </nav>
       </header>
     </>
