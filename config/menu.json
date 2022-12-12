@@ -13,25 +13,7 @@
       "url": "/elements"
     }
   ],
-  "secondary":  [
-    {
-      "name": "Programming",
-      "url": "/programming"
-    },
-    {
-      "name": "Assistant",
-      "url": "/assistant"
-    },
-    {
-      "name": "Github",
-      "url": "/github"
-    },
-    {
-      "name": "Technology",
-      "url": "/technology"
-    }
-  ]
-  ,
+  
   "footer": [
     {
       "name": "About",

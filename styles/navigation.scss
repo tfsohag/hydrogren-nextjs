@@ -32,7 +32,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-link {
-  @apply px-3 py-[3px] text-lg text-text transition rounded-[6px] hover:bg-white/10 duration-200 ease-in-out;
+  @apply px-3 py-[3px] text-text transition rounded-[6px] hover:bg-white/10 duration-200 ease-in-out;
 
   &--active  {
     @apply bg-white/10
@@ -55,19 +55,18 @@ input#nav-toggle:checked ~ #nav-menu {
   @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary;
 }
 
-// search style
-.search-icon {
-  @apply cursor-pointer p-2 text-xl text-dark hover:text-primary;
-}
-.search-modal {
-  @apply invisible absolute top-0 left-0 right-0 z-10 h-10 bg-white opacity-0 transition ;
-  .form-input {
-    @apply h-full w-full border-0 text-lg;
+//profile
+.profile-social-icons {
+  li {
+    @apply mx-2
   }
-  .search-close {
-    @apply absolute top-1/2 right-2 -translate-y-1/2 p-3 text-h4;
-  }
-  &.open {
-    @apply visible opacity-100;
-  }
+   a {
+    @apply text-white text-2xl;
+
+
+    svg {
+      @apply hover:scale-125
+       duration-200 ease-in-out transition
+    }
+   }
 }

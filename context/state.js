@@ -7,7 +7,7 @@ export const HeaderProvider = ({ children }) => {
     ...new Set(
       posts.reduce((acc, post) => [...acc, ...post.frontmatter.categories], [])
     ),
-  ].map((item) => ({ name: item, url: `/${item.toLowerCase()}` }));
+  ].map((item) => ({ name: item, url: `/categories/${item.toLowerCase()}` }));
   return (
     <HeaderContext.Provider value={{ categories }}>
       {children}

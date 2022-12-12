@@ -53,3 +53,9 @@
   @apply prose-li:text-text;
   @apply prose-thead:border-border prose-tr:border-border prose-td:text-text;
 }
+
+
+//card
+.card {
+  @apply border-border border p-9 rounded-[6px];
+}
