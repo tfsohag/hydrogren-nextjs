@@ -30,13 +30,11 @@ export const getStaticProps = async () => {
   const { frontmatter } = homepage;
   const { banner } = frontmatter;
   const posts = getSinglePage(`content/${blog_folder}`);
-  const authors = getSinglePage("content/authors");
 
   return {
     props: {
       banner: banner,
       posts: posts,
-      authors: authors,
     },
   };
 };

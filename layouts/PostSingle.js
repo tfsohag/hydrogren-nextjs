@@ -8,7 +8,7 @@ import Base from "./Baseof";
 import Share from "./components/Share";
 
 const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
-  let { description, title, date, image, categories, tags } = frontmatter;
+  let { description, title, date, image, categories } = frontmatter;
   description = description ? description : content.slice(0, 120);
 
   return (
@@ -18,34 +18,6 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
           <article className="text-center">
             {markdownify(title, "h1", "h2")}
             <ul className="mt-4 mb-8 text-text">
-              <li className="mb-2 mr-4 inline-block">
-                {authors
-                  .filter((author) =>
-                    frontmatter.authors
-                      .map((author) => slugify(author))
-                      .includes(slugify(author.frontmatter.title))
-                  )
-                  .map((author, i) => (
-                    <Link
-                      href={`/authors/${slugify(author.frontmatter.title)}`}
-                      key={`author-${i}`}
-                      className="inline-block hover:text-primary"
-                    >
-                      {author.frontmatter.image && (
-                        <span className="mr-2 align-top">
-                          <Image
-                            src={author.frontmatter.image}
-                            alt={author.frontmatter.title}
-                            height={25}
-                            width={25}
-                            className="h-6 w-6 rounded-full"
-                          />
-                        </span>
-                      )}
-                      <span>{author.frontmatter.title}</span>
-                    </Link>
-                  ))}
-              </li>
               <li className="mb-2 mr-4 inline-block">{dateFormat(date)}</li>
               <li className="mb-2 mr-4 inline-block">
                 <ul>
@@ -76,18 +48,6 @@ const PostSingle = ({ frontmatter, content, mdxContent, authors, slug }) => {
               <MDXRemote {...mdxContent} components={shortcodes} />
             </div>
             <div className="flex flex-wrap items-center justify-between">
-              <ul className="mr-4 mb-4 space-x-3">
-                {tags.map((tag, i) => (
-                  <li className="inline-block" key={`tag-${i}`}>
-                    <Link
-                      href={`/tags/${slugify(tag)}`}
-                      className="block rounded-lg bg-light px-4 py-2 font-semibold text-dark hover:text-primary"
-                    >
-                      {humanize(tag)}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
               <Share
                 className="social-share mb-4"
                 title={title}

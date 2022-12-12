@@ -1,13 +1,8 @@
 {
   "site": {
-    "title": "Next Tailwind Boilerplate",
+    "title": "Hydrogen Template Nextjs",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
-    "logo": "",
-    "logo_darkmode": "",
-    "logo_width": "200",
-    "logo_height": "40",
-    "logo_text": "Next Boilerplate"
+    "favicon": "/images/favicon.png"
   },
 
   "settings": {

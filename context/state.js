@@ -1,17 +1,19 @@
 import { createContext, useContext } from "react";
 import posts from "../.json/posts.json";
 
-const SearchContext = createContext();
-
-export const JsonContext = ({ children }) => {
-  const state = {
-    posts,
-  };
+const HeaderContext = createContext();
+export const HeaderProvider = ({ children }) => {
+  const categories = [
+    ...new Set(
+      posts.reduce((acc, post) => [...acc, ...post.frontmatter.categories], [])
+    ),
+  ].map((item) => ({ name: item, url: `/${item.toLowerCase()}` }));
   return (
-    <SearchContext.Provider value={state}>{children}</SearchContext.Provider>
+    <HeaderContext.Provider value={{ categories }}>
+      {children}
+    </HeaderContext.Provider>
   );
 };
-
-export const useSearchContext = () => {
-  return useContext(SearchContext);
+export const useHeaderContext = () => {
+  return useContext(HeaderContext);
 };

@@ -2,6 +2,7 @@ import config from "@config/config.json";
 import { plainify } from "@lib/utils/textConverter";
 import Footer from "@partials/Footer";
 import Header from "@partials/Header";
+import { HeaderProvider } from "context/state";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
@@ -89,7 +90,9 @@ const Base = ({
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <Header />
+      <HeaderProvider>
+        <Header />
+      </HeaderProvider>
       {/* main site */}
       <main>{children}</main>
       <Footer />

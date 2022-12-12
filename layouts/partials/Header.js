@@ -1,52 +1,41 @@
-import Logo from "@components/Logo";
-import ThemeSwitcher from "@components/ThemeSwitcher";
-import config from "@config/config.json";
 import menu from "@config/menu.json";
-import SearchModal from "@layouts/partials/SearchModal";
-import { useTheme } from "next-themes";
+import { useHeaderContext } from "context/state";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { IoSearch } from "react-icons/io5";
-
 const Header = () => {
-  // distructuring the main menu from menu object
-  const { main } = menu;
+  // router
+  const router = useRouter();
 
-  // states declaration
-  const [navFixed, setNavFixed] = useState(false);
-  const [searchModal, setSearchModal] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  //context
+  const { categories } = useHeaderContext();
 
-  // logo source
-  const { logo, logo_darkmode } = config.site;
-  const { theme, resolvedTheme } = useTheme();
-  useEffect(() => setMounted(true), []);
+  //local state
+  const [navMenu, setNavMenu] = useState(menu.main);
 
   useEffect(() => {
-    const changeNavbarBackground = () => {
-      if (window.pageYOffset >= 1) {
-        setNavFixed(true);
-      } else {
-        setNavFixed(false);
+    const matchRoute = menu.main.find((item) => item.url === router.asPath);
+    const navList = [...menu.main];
+    if (matchRoute) {
+      if (matchRoute.url === "/") {
+        const arr = categories.slice(0, 4);
+        navList.splice(1, 0, ...arr);
+        setNavMenu(navList);
+        return;
       }
-    };
-    window.addEventListener("scroll", changeNavbarBackground);
-  });
+    }
+
+    //if route not match
+    navList.splice(1, 0, ...categories);
+    navList.splice(navList.length - 2, menu.main.length - 1);
+    setNavMenu(navList);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [router.asPath, menu.main, categories]);
 
   return (
     <>
-      <header className={`header ${navFixed ? "shadow" : "pt-8 md:pt-16"}`}>
+      <header className="header">
         <nav className="navbar container">
-          {/* logo */}
-          <div className="order-0">
-            <Logo
-              src={
-                mounted && (theme === "dark" || resolvedTheme === "dark")
-                  ? logo_darkmode
-                  : logo
-              }
-            />
-          </div>
           {/* navbar toggler */}
           <input id="nav-toggle" type="checkbox" className="hidden" />
           <label
@@ -78,7 +67,7 @@ const Header = () => {
             id="nav-menu"
             className="navbar-nav order-3 hidden w-full md:flex md:w-auto md:space-x-2 md:order-1"
           >
-            {main.map((menu, i) => (
+            {navMenu.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
                 {menu.hasChildren ? (
                   <li className="nav-item nav-dropdown group relative">
@@ -111,22 +100,6 @@ const Header = () => {
               </React.Fragment>
             ))}
           </ul>
-          <div className="order-1 ml-auto flex items-center md:ml-0 md:order-2">
-            <ThemeSwitcher />
-            <div
-              className="search-icon"
-              onClick={() => {
-                setSearchModal(true);
-              }}
-            >
-              <IoSearch />
-            </div>
-          </div>
-
-          <SearchModal
-            searchModal={searchModal}
-            setSearchModal={setSearchModal}
-          />
         </nav>
       </header>
     </>

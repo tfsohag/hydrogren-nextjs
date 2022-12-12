@@ -1,45 +1,37 @@
 {
   "main": [
     {
-      "name": "Home",
+      "name": "All  Posts",
       "url": "/"
-    },
-    {
-      "name": "About",
-      "url": "/about"
-    },
-    {
-      "name": "Posts",
-      "url": "/posts"
     },
     {
       "name": "Contact",
       "url": "/contact"
     },
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Authors",
-          "url": "/authors"
-        },
-        {
-          "name": "Categories",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
-        }
-      ]
+      "name": "Elements",
+      "url": "/elements"
     }
   ],
+  "secondary":  [
+    {
+      "name": "Programming",
+      "url": "/programming"
+    },
+    {
+      "name": "Assistant",
+      "url": "/assistant"
+    },
+    {
+      "name": "Github",
+      "url": "/github"
+    },
+    {
+      "name": "Technology",
+      "url": "/technology"
+    }
+  ]
+  ,
   "footer": [
     {
       "name": "About",

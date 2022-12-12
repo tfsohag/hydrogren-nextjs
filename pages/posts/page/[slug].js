@@ -67,14 +67,12 @@ export const getStaticProps = async ({ params }) => {
   const currentPage = parseInt((params && params.slug) || 1);
   const { pagination } = config.settings;
   const posts = getSinglePage(`content/${blog_folder}`);
-  const authors = getSinglePage("content/authors");
   const postIndex = await getListPage(`content/${blog_folder}/_index.md`);
 
   return {
     props: {
       pagination: pagination,
       posts: posts,
-      authors: authors,
       currentPage: currentPage,
       postIndex: postIndex,
     },
