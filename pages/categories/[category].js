@@ -1,7 +1,9 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
+import Card from "@layouts/components/Card";
 import { getSinglePage } from "@lib/contentParser";
 import { getTaxonomy } from "@lib/taxonomyParser";
+import { sortByDate } from "@lib/utils/sortFunctions";
 import { slugify } from "@lib/utils/textConverter";
 
 const { blog_folder } = config.settings;
@@ -9,9 +11,19 @@ const { blog_folder } = config.settings;
 const Category = ({ posts }) => {
   return (
     <Base>
-      {posts.map((post) => (
-        <h1 key={post.slug}>{post.slug}</h1>
-      ))}
+      <div className="section">
+        <div className="container">
+          <div className="row">
+            {posts.map((post, i) => (
+              <Card
+                className="col-12 mb-8 sm:col-6"
+                key={"key-" + i}
+                post={post}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
     </Base>
   );
 };
@@ -39,6 +51,8 @@ export const getStaticProps = ({ params }) => {
       slugify(category).includes(params.category)
     )
   );
+
+  const sortedPosts = sortByDate(filteredPosts);
 
   return {
     props: {

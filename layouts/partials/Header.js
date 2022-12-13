@@ -11,7 +11,9 @@ const Header = () => {
   const { categories } = useHeaderContext();
 
   //local state
-  const [navMenu, setNavMenu] = useState(menu.main);
+  const [navMenu, setNavMenu] = useState(
+    menu.main.map((item) => ({ ...item, type: "main" }))
+  );
 
   useEffect(() => {
     const matchRoute = menu.main.find((item) => item.url === router.asPath);
@@ -129,6 +131,8 @@ const Header = () => {
                       <Link
                         href={menu.url}
                         className={`nav-link block ${
+                          !menu.url.includes("/categories") && "text-white"
+                        } ${
                           router.asPath === menu.url ? "nav-link--active" : ""
                         }`}
                       >

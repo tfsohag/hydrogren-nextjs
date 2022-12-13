@@ -5,7 +5,7 @@
 
 // container
 .container {
-  @apply mx-auto max-w-[1000px] px-4;
+  @apply mx-auto max-w-[1140px] px-4;
 }
 
 // form style
@@ -13,8 +13,14 @@
   @apply mb-5 leading-10;
 }
 
+.form-input,
+.form-textarea {
+  @apply border-border py-3 border bg-transparent focus:border-border focus:ring-transparent focus:bg-[#202e3c] placeholder:text-text/40;
+}
+
+
 // social icon style
-.social-icons {
+.social-share {
   @apply space-x-4;
   li {
     @apply inline-block;
@@ -27,31 +33,46 @@
   }
 }
 
-// form style
-.form-input,
-.form-textarea {
-  @apply border-border focus:border-primary focus:ring-transparent;
+//profile
+.profile-social-icons {
+  li {
+    @apply mx-3
+  }
+   a {
+    @apply text-white text-2xl;
+
+
+    svg {
+      @apply hover:scale-125
+       duration-200 ease-in-out transition
+    }
+   }
 }
+
 
 // content style
 .content {
   @apply prose max-w-none;
-  @apply prose-headings:mt-12 prose-headings:font-bold prose-headings:text-dark;
+  @apply prose-headings:mt-12 prose-headings:font-normal prose-headings:text-white;
   @apply prose-h1:mb-4 prose-h1:text-h1-sm md:prose-h1:text-h1;
   @apply prose-h2:mb-4 prose-h2:text-h2-sm md:prose-h2:text-h2;
   @apply prose-h3:mt-4 prose-h3:text-h3-sm md:prose-h3:text-h3;
   @apply prose-h4:mt-4;
   @apply prose-h5:mb-4;
   @apply prose-h6:mb-6;
-  @apply prose-hr:border-border;
-  @apply prose-p:text-lg prose-p:text-text;
+  @apply prose-hr:border-[#cbcbcb42]/25;
+  @apply  prose-p:text-text;
   @apply prose-img:rounded-lg;
-  @apply prose-blockquote:border-primary prose-blockquote:bg-theme-light prose-blockquote:py-1 prose-blockquote:px-4;
+  @apply prose-blockquote:border-primary prose-blockquote:bg-[rgba(97,238,188,4%)] prose-blockquote:rounded-[6px] prose-blockquote:text-2xl prose-blockquote:text-white prose-blockquote:py-8 prose-blockquote:px-8 prose-blockquote:not-italic prose-blockquote:leading-9;
   @apply prose-code:rounded-sm prose-code:border prose-code:border-border prose-code:px-1 prose-code:text-primary;
-  @apply prose-strong:text-dark;
+  @apply prose-strong:text-text;
   @apply prose-a:text-primary;
-  @apply prose-li:text-text;
+  @apply prose-li:text-text  prose-li:marker:text-text;
   @apply prose-thead:border-border prose-tr:border-border prose-td:text-text;
+
+  blockquote p {
+    @apply text-white my-0 leading-9 text-[21px];
+  }
 }
 
 

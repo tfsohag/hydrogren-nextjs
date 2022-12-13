@@ -5,17 +5,9 @@ import { parseMDX } from "@lib/utils/mdxParser";
 const { blog_folder } = config.settings;
 
 // post single layout
-const Article = ({ post, authors, mdxContent, slug }) => {
-  const { frontmatter, content } = post[0];
-
+const Article = ({ post, mdxContent, slug, posts }) => {
   return (
-    <PostSingle
-      frontmatter={frontmatter}
-      content={content}
-      mdxContent={mdxContent}
-      authors={authors}
-      slug={slug}
-    />
+    <PostSingle mdxContent={mdxContent} slug={slug} post={post} posts={posts} />
   );
 };
 
@@ -46,6 +38,7 @@ export const getStaticProps = async ({ params }) => {
       post: post,
       mdxContent: mdxContent,
       slug: single,
+      posts: posts,
     },
   };
 };
