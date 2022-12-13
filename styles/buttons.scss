@@ -1,9 +1,9 @@
 .btn {
-  @apply inline-block border px-4 py-[10px] font-normal transition;
+  @apply inline-block border px-4 py-[11px] font-normal transition;
 }
 
 .btn-primary {
-  @apply bg-white text-theme-dark;
+  @apply bg-white text-theme-dark rounded-[6px] no-underline border-none;
 }
 
 .btn-outline-primary {

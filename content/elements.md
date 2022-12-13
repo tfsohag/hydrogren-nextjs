@@ -101,9 +101,44 @@ print s
 
 ---
 
+#### Button
+
+<Button href="#" type="btn-primary">Button</Button>
+
+---
+
 #### Quote
 
 > Did you come here for something in particular or just general Riker-bashing? And blowing into maximum warp speed, you appeared for an instant to be in two places at once.
+
+---
+
+<Tabs>
+
+<Tab name="Tab 1">
+  #### Did you come here for something in particular?
+
+</Tab>
+
+<Tab name="Tab 2">
+This is tab 2
+</Tab>
+
+<Tab name="Tab 3">
+This is tab 3
+</Tab>
+
+</Tabs>
+
+---
+
+#### Table
+
+| #    | First      | Last        | Handle        |
+| :---| :---:        |    :----:   |          ---: |
+|1    | Row:1 Cell:1| Row:1 Cell:2| Row:1 Cell:3  |
+|2    | Row:2 Cell:1| Row:2 Cell:2| Row:2 Cell:3  |
+|3    | Row:3 Cell:1| Row:3 Cell:2| Row:3 Cell:3  |
 
 ---
 
@@ -116,7 +151,6 @@ print s
   - This is a thing.
   - This is a thing.
 </Accordion>
-
 <Accordion className="mt-3" title="How can I adjust Horizontal centering">
   - This is a thing.
   - This is a thing.
@@ -124,7 +158,6 @@ print s
   - This is a thing.
   - This is a thing.
 </Accordion>
-
 <Accordion className="mt-3" title="Should you use Negative margin?">
   - This is a thing.
   - This is a thing.
@@ -132,3 +165,24 @@ print s
   - This is a thing.
   - This is a thing.
 </Accordion>
+
+---
+
+#### Image
+
+![coding](/images/posts/post-2.jpg)
+
+---
+
+#### Youtube video
+
+<YoutubePlayere id="ResipmZmpDU" title="Play: Video" />
+
+---
+---
+
+#### Custom video
+
+<CustomPlayer src="http://techslides.com/demos/sample-videos/small.mp4" />
+
+---

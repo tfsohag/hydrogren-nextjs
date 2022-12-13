@@ -68,10 +68,14 @@
   @apply prose-strong:text-text;
   @apply prose-a:text-primary;
   @apply prose-li:text-text  prose-li:marker:text-text;
-  @apply prose-thead:border-border prose-tr:border-border prose-td:text-text;
+  @apply prose-table:rounded-[6px] prose-table:overflow-hidden prose-thead:border-border prose-tr:border-none prose-td:text-base prose-td:text-text prose-td:p-3 prose-thead:bg-[#2e3b47] prose-th:p-3 prose-th:text-white prose-th:text-base;
 
   blockquote p {
     @apply text-white my-0 leading-9 text-[21px];
+  }
+
+  tbody {
+    @apply bg-[#242e38]
   }
 }
 
