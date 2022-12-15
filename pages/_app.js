@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import TagManager from "react-gtm-module";
 import "styles/style.scss";
 
+
 const App = ({ Component, pageProps }) => {
   // import google font css
   const pf = theme.fonts.font_family.primary;
@@ -52,7 +53,7 @@ const App = ({ Component, pageProps }) => {
           content="width=device-width, initial-scale=1, maximum-scale=5"
         />
       </Head>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
     </>
   );
 };

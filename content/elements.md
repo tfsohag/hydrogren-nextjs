@@ -183,6 +183,12 @@ print s
 
 ---
 
+#### Gallery
+
+<Gallery dir="/public/images/gallery"></Gallery>
+
+---
+
 #### Youtube video
 
 <YoutubePlayere id="ResipmZmpDU" title="Play: Video" />

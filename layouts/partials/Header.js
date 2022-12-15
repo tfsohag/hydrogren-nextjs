@@ -133,7 +133,7 @@ const Header = () => {
                         className={`nav-link block ${
                           !menu.url.includes("/categories") && "text-white"
                         } ${
-                          router.asPath === menu.url ? "nav-link--active" : ""
+                          router.asPath === menu.url ? "nav-link-active" : ""
                         }`}
                       >
                         {menu.name}

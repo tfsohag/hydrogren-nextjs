@@ -89,6 +89,7 @@
   @apply bg-[#242e38];
 }
 
+//tab
 .tab-item {
   h5 {
     @apply mt-0;
@@ -98,3 +99,26 @@
     @apply mb-0
   }
 }
+
+//gallery
+.gallery {
+  &-item {
+    margin-top: 30px;
+  }
+  &-img {
+    @apply h-full object-cover;
+  }
+
+  .ReactGridGallery_tile {
+    @apply  flex-grow;
+
+    margin: 10px !important;
+  }
+  
+  .ReactGridGallery_tile-viewport {
+    img {
+    @apply w-full rounded-none object-cover;
+    }
+  }
+}
+
