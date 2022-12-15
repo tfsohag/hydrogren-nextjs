@@ -5,10 +5,6 @@ draft: false
 arr: hello
 ---
 
-#### Heading example
-
-Here is an example of headings. You can use this heading by the following markdown rules. For example: use `#` for heading 1 and use `######` for heading 6.
-
 # Heading 1
 
 ## Heading 2
@@ -23,15 +19,31 @@ Here is an example of headings. You can use this heading by the following markdo
 
 ---
 
+#### Paragraph
+
+Did you come here for something in particular or just general Riker-bashing? And blowing into maximum warp speed, you appeared for an instant to be in two places at once. We have a saboteur aboard. We know you’re dealing in stolen ore. But I wanna talk about the assassination attempt on Lieutenant Worf. Could someone survive inside a transporter buffer for 75 years? Fate. It protects fools, little children, and ships.
+
+Did you come here for something in particular or just general Riker-bashing? And blowing into maximum warp speed, you appeared for an instant to be in two places at once. We have a saboteur aboard. We know you’re dealing in stolen ore. But I wanna talk about the assassination attempt on Lieutenant Worf. Could someone survive inside a transporter buffer for 75 years? Fate. It protects fools, little children, and ships.
+
+---
+
 #### Emphasis
 
-The emphasis, aka italics, with _asterisks_ or _underscores_.
+1. Did you come here for something in **particular** or just general
 
-Strong emphasis, aka bold, with **asterisks** or **underscores**.
+2. Did you come here for something in <ins>particular</ins>
 
-The combined emphasis with **asterisks and _underscores_**.
+3. _Did you come here_
 
-Strikethrough uses two tildes. ~~Scratch this.~~
+4. Did you come here for **something** in particular
+
+5. Did you come here for something in particular
+
+6. Did you come here for something in particular
+
+7. URLs and URLs in angle brackets will automatically get turned into links. [http://www.example.com](http://www.example.com) or
+
+8. [http://www.example.com](http://www.example.com) and sometimes example.com (but not on Github, for example).
 
 ---
 
@@ -59,12 +71,6 @@ Some text to show that the reference links can follow later.
 
 ---
 
-#### Paragraph
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime corporis cumque totam aliquid nam sint inventore optio modi neque laborum officiis necessitatibus, facilis placeat pariatur! Voluptatem, sed harum pariatur adipisci voluptates voluptatum cumque, porro sint minima similique magni perferendis fuga! Optio vel ipsum excepturi tempore reiciendis id quidem? Vel in, doloribus debitis nesciunt fugit sequi magnam accusantium modi neque quis, vitae velit, pariatur harum autem a! Velit impedit atque maiores animi possimus asperiores natus repellendus excepturi sint architecto eligendi non, omnis nihil. Facilis, doloremque illum. Fugit optio laborum minus debitis natus illo perspiciatis corporis voluptatum rerum laboriosam.
-
----
-
 #### Ordered List
 
 1. List item
@@ -87,17 +93,48 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam nihil enim maxime 
 
 #### Code and Syntax Highlighting
 
-This is an `Inline code` sample.
+#### HTML
 
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
+```
+<ul>
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="about/">About</a>
+  </li>
+</ul>
 ```
 
-```python
-s = "Python syntax highlighting"
-print s
+---
+
+#### CSS
+
 ```
+
+img {
+  vertical-align: middle;
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
+```
+
+---
+
+#### JavaScript
+
+```
+window.addEventListener("load", (e) => {
+  document.querySelector(".preloader").style.display = "none";
+});
+```
+
+---
+
+#### Github Gist
+
+<Gist src="https://gist.github.com/MojtabaHs/91e34fd0e987fe7ce801936dc6ece0e8"  />
 
 ---
 
