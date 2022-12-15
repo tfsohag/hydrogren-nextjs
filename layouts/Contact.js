@@ -68,7 +68,7 @@ const Contact = ({ data }) => {
                     placeholder="Your message"
                   />
                 </div>
-                <button className="btn btn-primary rounded-[6px] text-sm">
+                <button className="btn btn-primary rounded text-sm">
                   Send Message
                 </button>
               </form>

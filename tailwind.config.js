@@ -69,6 +69,9 @@ module.exports = {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
       },
+      borderRadius: {
+        DEFAULT: theme.borderRadius.default,
+      },
     },
   },
   plugins: [

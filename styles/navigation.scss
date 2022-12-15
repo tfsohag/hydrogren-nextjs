@@ -32,7 +32,7 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .nav-link {
-  @apply px-3 py-[3px] text-text transition rounded-[6px] hover:bg-white/10 duration-200 ease-in-out;
+  @apply px-3 py-[3px] text-text transition rounded hover:bg-white/10 duration-200 ease-in-out;
 
   &--active  {
     @apply bg-white/10
