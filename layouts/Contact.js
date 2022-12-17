@@ -4,7 +4,7 @@ const Contact = ({ data }) => {
   const { frontmatter } = data;
   const { title, subtitle, description, list, form_title } = frontmatter;
   return (
-    <section className="section">
+    <section className="section pt-[72px]">
       <div className="container">
         <div className="row">
           <div className="mx-auto lg:col-8">
@@ -64,7 +64,7 @@ const Contact = ({ data }) => {
                   </label>
                   <textarea
                     className="form-textarea w-full"
-                    rows="7"
+                    rows="6"
                     placeholder="Your message"
                   />
                 </div>

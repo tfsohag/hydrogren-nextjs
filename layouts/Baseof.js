@@ -90,9 +90,13 @@ const Base = ({
         />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <HeaderProvider>
-        <Header />
-      </HeaderProvider>
+
+      {router.route !== "/posts/[single]" && (
+        <HeaderProvider>
+          <Header />
+        </HeaderProvider>
+      )}
+
       {/* main site */}
       <main>{children}</main>
       <Footer />

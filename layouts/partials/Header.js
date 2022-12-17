@@ -74,7 +74,7 @@ const Header = () => {
           <div className="text-center">
             {router.asPath !== "/" && (
               <Link
-                className="mb-12  inline-flex items-center text-primary"
+                className="mb-12  inline-flex items-center text-primary hover:underline"
                 href="/"
               >
                 <svg

@@ -15,7 +15,7 @@
 
 .form-input,
 .form-textarea {
-  @apply border-border py-3 border bg-transparent focus:border-border focus:ring-transparent focus:bg-[#202e3c] placeholder:text-text/40;
+  @apply border-border py-3 px-5 border bg-transparent focus:border-border focus:ring-transparent focus:bg-[#202e3c] placeholder:text-text/50;
 }
 
 

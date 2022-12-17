@@ -2,7 +2,6 @@ import Accordion from "./Accordion";
 import Button from "./Button";
 import CustomPlayer from "./CustomPlayer";
 import Gallery from "./Gallery";
-import Gist from "./Gist";
 import Notice from "./Notice";
 import Tab from "./Tab";
 import Tabs from "./Tabs";
@@ -16,7 +15,6 @@ const shortcodes = {
   Tab,
   Tabs,
   Gallery,
-  Gist,
   Notice,
 };
 

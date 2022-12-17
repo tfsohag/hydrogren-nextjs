@@ -30,9 +30,7 @@ function Tabs({children}) {
       {children.map((item, index) => <li key={index} className={`tab-link m-0 cursor-pointer px-8 py-3 text-sm rounded ${index === 0 && 'active'}`} onClick={(e)=> handleChangTab(e, index)}>{item.props.name}</li>)}
     </ul>
     <ul className="tab-items list-none rounded mt-1 mb-0 bg-[#242e38] p-6" ref={tabItemsRef}>
-      {
-        children
-      }
+      {children}
     </ul>
   </div>
 }
