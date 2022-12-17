@@ -39,21 +39,7 @@ input#nav-toggle:checked ~ #nav-menu {
   }
 }
 
-.nav-dropdown {
-  @apply mr-0;
-}
 
-.nav-dropdown-list {
-  @apply z-10 rounded-lg bg-white p-4 shadow;
-}
-
-.nav-dropdown-item {
-  @apply mb-1;
-}
-
-.nav-dropdown-link {
-  @apply min-w-[150px] py-1 text-lg font-semibold text-dark transition hover:text-primary;
-}
 
 
 //accordion

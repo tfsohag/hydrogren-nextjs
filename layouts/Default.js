@@ -6,7 +6,7 @@ const Default = ({ data }) => {
   const { frontmatter, mdxContent } = data;
   const { title } = frontmatter;
   return (
-    <section className="section !pt-[60px]">
+    <section className="!pt-[60px] pb-10">
       <div className="container">
         {markdownify(title, "h1", "h1 mb-20 text-center")}
         <div className="row">

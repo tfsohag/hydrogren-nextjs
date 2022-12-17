@@ -110,9 +110,7 @@
   }
 
   .ReactGridGallery_tile {
-    @apply  flex-grow bg-transparent #{!important};
-
-    margin: 10px !important;
+    @apply  flex-grow bg-transparent m-2.5 #{!important};
 
     &:hover {
       @apply cursor-zoom-in;
