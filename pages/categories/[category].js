@@ -14,13 +14,17 @@ const Category = ({ posts }) => {
       <div className="section">
         <div className="container">
           <div className="row">
-            {posts.map((post, i) => (
-              <Card
-                className="col-12 mb-8 sm:col-6"
-                key={"key-" + i}
-                post={post}
-              />
-            ))}
+            <div className="mx-auto lg:col-10">
+              <div className="row">
+                {posts.map((post, i) => (
+                  <Card
+                    className="mb-8 sm:col-6"
+                    key={"key-" + i}
+                    post={post}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

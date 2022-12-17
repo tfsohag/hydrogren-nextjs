@@ -17,22 +17,24 @@ const Home = ({ profile, posts }) => {
       {/* profile */}
       <div className="section">
         <div className="container">
-          <div className="mx-auto max-w-[760px] text-center">
-            <ImageFallback
-              className="mx-auto rounded-full"
-              src={profile.avatar}
-              width={220}
-              height={220}
-              priority={true}
-              alt=""
-            />
-            {markdownify(profile.name, "h1", "mt-12 text-8xl")}
-            {markdownify(profile.position, "p", "mt-6 text-primary text-xl")}
-            {markdownify(profile.details, "p", "mt-4 leading-9 text-xl")}
-            <Social
-              source={profile.socials}
-              className="profile-social-icons mt-8"
-            />
+          <div className="row">
+            <div className="mx-auto text-center lg:col-8">
+              <ImageFallback
+                className="mx-auto rounded-full"
+                src={profile.avatar}
+                width={220}
+                height={220}
+                priority={true}
+                alt=""
+              />
+              {markdownify(profile.name, "h1", "mt-12 text-8xl font-semibold")}
+              {markdownify(profile.position, "p", "mt-6 text-primary text-xl")}
+              {markdownify(profile.details, "p", "mt-4 leading-9 text-xl")}
+              <Social
+                source={profile.socials}
+                className="profile-social-icons mt-8"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -40,8 +42,11 @@ const Home = ({ profile, posts }) => {
       {/* posts */}
       <div className="pt-4">
         <div className="container">
-          {/* <Posts posts={sortPostByDate.slice(0, showPost)} /> */}
-          <Posts posts={sortPostByDate} />
+          <div className="row">
+            <div className="mx-auto lg:col-10">
+              <Posts posts={sortPostByDate} />
+            </div>
+          </div>
         </div>
       </div>
     </Base>
@@ -55,7 +60,6 @@ export const getStaticProps = async () => {
   const homepage = await getListPage("content/_index.md");
   const { frontmatter } = homepage;
   const posts = getSinglePage(`content/${blog_folder}`);
-
   return {
     props: {
       profile: frontmatter,

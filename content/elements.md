@@ -93,7 +93,7 @@ Some text to show that the reference links can follow later.
 
 #### Code and Syntax Highlighting
 
-#### HTML
+##### HTML
 
 ```
 <ul>
@@ -108,7 +108,7 @@ Some text to show that the reference links can follow later.
 
 ---
 
-#### CSS
+##### CSS
 
 ```
 
@@ -122,7 +122,7 @@ img {
 
 ---
 
-#### JavaScript
+##### JavaScript
 
 ```
 window.addEventListener("load", (e) => {
@@ -134,7 +134,13 @@ window.addEventListener("load", (e) => {
 
 #### Github Gist
 
-<Gist src="https://gist.github.com/MojtabaHs/91e34fd0e987fe7ce801936dc6ece0e8"  />
+<iframe
+  width="100%"
+  height="350"
+  src="data:text/html;charset=utf-8,
+  <head><base target='_blank' /></head>
+  <body><script src='https://gist.github.com/tfsohag/4aa43a6d9d3518ed627727d2ad5b2f44.js'></script>
+  </body>" />
 
 ---
 
@@ -147,6 +153,26 @@ window.addEventListener("load", (e) => {
 #### Quote
 
 > Did you come here for something in particular or just general Riker-bashing? And blowing into maximum warp speed, you appeared for an instant to be in two places at once.
+
+---
+
+#### Notice
+
+<Notice type="note" title="Notice">
+  This is a simple note.
+</Notice>
+
+<Notice type="tip" title="Tip">
+  This is a simple note.
+</Notice>
+
+<Notice type="info" title="Info">
+  This is a simple note.
+</Notice>
+
+<Notice type="warning" title="Warning">
+  This is a simple note.
+</Notice>
 
 ---
 

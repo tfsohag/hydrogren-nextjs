@@ -74,7 +74,7 @@ const Header = () => {
           <div className="text-center">
             {router.asPath !== "/" && (
               <Link
-                className="mb-12  inline-flex items-center hover:text-primary"
+                className="mb-12  inline-flex items-center text-primary"
                 href="/"
               >
                 <svg
@@ -132,9 +132,7 @@ const Header = () => {
                         href={menu.url}
                         className={`nav-link block ${
                           !menu.url.includes("/categories") && "text-white"
-                        } ${
-                          router.asPath === menu.url && "nav-link-active"
-                        }`}
+                        } ${router.asPath === menu.url && "nav-link-active"}`}
                       >
                         {menu.name}
                       </Link>

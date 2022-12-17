@@ -2,7 +2,8 @@
 title: "How to make toys from old Olarpaper"
 date: 2022-07-13T05:00:00Z
 image: /images/posts/post-4.jpg
-categories: ["Github"]
+categories:
+   - Github
 draft: false
 ---
 

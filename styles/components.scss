@@ -5,7 +5,7 @@
 
 // container
 .container {
-  @apply mx-auto max-w-[1140px] px-4;
+  @apply mx-auto max-w-[1140px] xl:max-w-[1320px] px-3;
 }
 
 // form style
@@ -53,7 +53,7 @@
 // content style
 .content {
   @apply prose max-w-none;
-  @apply prose-headings:mt-12 prose-headings:font-normal prose-headings:text-white;
+  @apply prose-headings:mt-4 prose-headings:font-normal prose-headings:text-white;
   @apply prose-h1:mb-4 prose-h1:text-h1-sm md:prose-h1:text-h1;
   @apply prose-h2:mb-4 prose-h2:text-h2-sm md:prose-h2:text-h2;
   @apply prose-h3:mt-4 prose-h3:text-h3-sm md:prose-h3:text-h3;
@@ -85,19 +85,19 @@
   @apply border-border border p-9 rounded;
 }
 
-.tab-link.active {
-  @apply bg-[#242e38];
-}
-
 //tab
 .tab-item {
   h5 {
     @apply mt-0;
   }
-
+  
   p {
     @apply mb-0
   }
+}
+
+.tab-link.active {
+  @apply bg-[#242e38];
 }
 
 //gallery
@@ -110,15 +110,52 @@
   }
 
   .ReactGridGallery_tile {
-    @apply  flex-grow;
+    @apply  flex-grow bg-transparent #{!important};
 
     margin: 10px !important;
+
+    &:hover {
+      @apply cursor-zoom-in;
+      
+      img {
+        @apply scale-105
+      }
+    }
   }
   
   .ReactGridGallery_tile-viewport {
     img {
-    @apply w-full rounded-none object-cover;
+    @apply w-full rounded-none object-cover transition-all duration-300;
+    @apply cursor-zoom-in #{!important};
     }
   }
+}
+
+
+
+//notice
+.notice {
+  @apply border-t-[30px];
+
+  &.note {
+    @apply bg-[rgba(151,214,255,.15)] border-[#97d6ff]
+  }
+
+  p {
+    @apply my-0
+  }
+
+  &.tip {
+    @apply bg-[rgba(150,255,150,.15)] border-[#96ff96]
+  }
+
+  &.info {
+    @apply bg-[rgba(255,195,146,.15)] border-[#ffc392cc]
+  }
+
+  &.warning {
+    @apply bg-[rgba(255,145,140,.15)] border-[#ff918ccc]
+  }
+  
 }
 

@@ -10,7 +10,10 @@ const Card = ({ post, className }) => {
         <ul className="flex items-center space-x-4">
           {post.frontmatter.categories.map((category, index) => (
             <li key={index}>
-              <Link href={`/categories/${category.toLowerCase()}`}>
+              <Link
+                className="text-primary"
+                href={`/categories/${category.toLowerCase()}`}
+              >
                 {category}
               </Link>
             </li>
@@ -23,7 +26,7 @@ const Card = ({ post, className }) => {
           </Link>
         </h2>
         <Link
-          className="mt-7 inline-flex items-center hover:text-primary"
+          className="btn-link mt-7 inline-flex items-center hover:text-primary"
           href={`/${blog_folder}/${post.slug}`}
         >
           Continue Reading
