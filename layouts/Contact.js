@@ -8,7 +8,7 @@ const Contact = ({ data }) => {
       <div className="container">
         <div className="row">
           <div className="mx-auto lg:col-8">
-            {markdownify(title, "h1", "h1 mb-8 font-normal text-center")}
+            {markdownify(title, "h1", "h1 mb-20 font-normal text-center")}
             {markdownify(subtitle, "h2", "font-normal text-3xl")}
             {markdownify(description, "p", "mt-4")}
             {list.map((item, index) => (
@@ -33,7 +33,7 @@ const Contact = ({ data }) => {
                       required
                     />
                   </div>
-                  <div className="md:col-6">
+                  <div className="mt-6 md:mt-0 md:col-6">
                     <label className="mb-2 block" htmlFor="email">
                       Email
                     </label>

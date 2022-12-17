@@ -8,14 +8,15 @@ import { slugify } from "@lib/utils/textConverter";
 
 const { blog_folder } = config.settings;
 
-const Category = ({ posts }) => {
+const Category = ({ posts, slug }) => {
   return (
     <Base>
       <div className="section">
         <div className="container">
           <div className="row">
             <div className="mx-auto lg:col-10">
-              <div className="row">
+              <h1 className="text-center capitalize">{slug}</h1>
+              <div className="row pt-12">
                 {posts.map((post, i) => (
                   <Card
                     className="mb-8 sm:col-6"
@@ -61,6 +62,7 @@ export const getStaticProps = ({ params }) => {
   return {
     props: {
       posts: filteredPosts,
+      slug: params.category,
     },
   };
 };

@@ -27,7 +27,11 @@ const Home = ({ profile, posts }) => {
                 priority={true}
                 alt=""
               />
-              {markdownify(profile.name, "h1", "mt-12 text-8xl font-semibold")}
+              {markdownify(
+                profile.name,
+                "h1",
+                "mt-12 text-6xl lg:text-8xl font-semibold"
+              )}
               {markdownify(profile.position, "p", "mt-6 text-primary text-xl")}
               {markdownify(profile.details, "p", "mt-4 leading-9 text-xl")}
               <Social
