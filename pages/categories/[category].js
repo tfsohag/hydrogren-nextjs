@@ -19,7 +19,7 @@ const Category = ({ posts, slug }) => {
               <div className="row pt-12">
                 {posts.map((post, i) => (
                   <Card
-                    className="mb-8 sm:col-6"
+                    className="mb-6 sm:col-6"
                     key={"key-" + i}
                     post={post}
                   />

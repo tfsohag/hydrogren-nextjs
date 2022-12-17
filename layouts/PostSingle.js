@@ -90,7 +90,7 @@ const PostSingle = ({ post, mdxContent, slug, posts }) => {
             <div className="row mt-12">
               {similarPosts.map((post, i) => (
                 <Card
-                  className="col-12 mb-8 md:col-4"
+                  className="col-12 mb-6 md:col-4"
                   key={"key-" + i}
                   post={post}
                 />
