@@ -68,7 +68,7 @@ const Pagination = ({ section, currentPage, totalPages }) => {
               {pagination === currentPage ? (
                 <span
                   aria-current="page"
-                  className={`border border-primary bg-primary px-4 py-2 text-white`}
+                  className={`border border-primary bg-primary px-4 py-2 text-light`}
                 >
                   {pagination}
                 </span>

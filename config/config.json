@@ -6,7 +6,6 @@
   },
 
   "settings": {
-    "theme_switcher": true,
     "default_theme": "system",
     "pagination": 2,
     "summary_length": 200,
