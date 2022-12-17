@@ -3,7 +3,7 @@
 }
 
 .btn-primary {
-  @apply bg-white text-black rounded no-underline border-none;
+  @apply bg-white text-black rounded no-underline border-none hover:bg-primary;
 }
 
 .btn-outline-primary {
