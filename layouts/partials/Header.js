@@ -11,6 +11,7 @@ const Header = () => {
   const { categories } = useHeaderContext();
 
   //local state
+  const [openMenu, setOpenMenu] = useState(false);
   const [navMenu, setNavMenu] = useState(
     menu.main.map((item) => ({ ...item, type: "main" }))
   );
@@ -42,32 +43,26 @@ const Header = () => {
       <header className={`header mt-8 pt-12 pb-3`}>
         <nav className="navbar container text-center md:text-left">
           {/* navbar toggler */}
-          <input id="nav-toggle" type="checkbox" className="hidden" />
-          <label
-            id="show-button"
-            htmlFor="nav-toggle"
-            className="btn btn-primary order-2 inline-flex cursor-pointer items-center py-2 md:hidden md:order-1"
+          <button
+            className="btn btn-primary inline-flex items-center md:hidden"
+            onClick={() => setOpenMenu(!openMenu)}
           >
-            <svg className="mr-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-              <title>Menu Open</title>
-              <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
-            </svg>
+            {openMenu ? (
+              <svg className="mr-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+                <title>Menu Close</title>
+                <polygon
+                  points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+                  transform="rotate(45 10 10)"
+                />
+              </svg>
+            ) : (
+              <svg className="mr-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
+                <title>Menu Open</title>
+                <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z" />
+              </svg>
+            )}
             Menu
-          </label>
-          <label
-            id="hide-button"
-            htmlFor="nav-toggle"
-            className="btn btn-primary order-2 hidden cursor-pointer items-center py-2 md:order-1"
-          >
-            <svg className="mr-1 h-4 w-4 fill-current" viewBox="0 0 20 20">
-              <title>Menu Close</title>
-              <polygon
-                points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
-                transform="rotate(45 10 10)"
-              />
-            </svg>
-            Menu
-          </label>
+          </button>
           {/* /navbar toggler */}
 
           {router.asPath !== "/" && (
@@ -96,7 +91,9 @@ const Header = () => {
 
           <ul
             id="nav-menu"
-            className="navbar-nav order-3 hidden w-full justify-center md:flex md:w-auto md:space-x-2 md:order-1"
+            className={`navbar-nav order-3 ${
+              !openMenu && "hidden"
+            } w-full justify-center md:flex md:w-auto md:space-x-2 md:order-1`}
           >
             {navMenu.map((menu, i) => (
               <React.Fragment key={`menu-${i}`}>
@@ -124,6 +121,7 @@ const Header = () => {
                 ) : (
                   <li className="nav-item">
                     <Link
+                      onClick={() => setOpenMenu(false)}
                       href={menu.url}
                       className={`nav-link inline-block ${
                         !menu.url.includes("/categories") && "text-light"
