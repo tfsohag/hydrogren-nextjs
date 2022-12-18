@@ -44,7 +44,7 @@ module.exports = {
     extend: {
       colors: {
         text: theme.colors.default.text_color.default,
-        light: theme.colors.default.text_color.light,
+        dark: theme.colors.default.text_color.dark,
         primary: theme.colors.default.theme_color.primary,
         body: theme.colors.default.theme_color.body,
         border: theme.colors.default.theme_color.border,
@@ -64,9 +64,6 @@ module.exports = {
       fontFamily: {
         primary: [fontPrimary, fontPrimaryType],
         secondary: [fontSecondary, fontSecondaryType],
-      },
-      borderRadius: {
-        DEFAULT: theme.borderRadius.default,
       },
     },
   },

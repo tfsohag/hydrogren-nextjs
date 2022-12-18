@@ -1,14 +1,16 @@
-function Gist({src}) {
+function Gist({ src }) {
   return (
-    <iframe 
-    width="100%"
-    height="350"    
-    src={`data:text/html;charset=utf-8,
-    <head><base target='_blank' /></head>
-    <body><script src='${src}'></script>
-    </body>`} />
-
-  )
+    <>
+      <link
+        rel="stylesheet"
+        href="https://cdn.rawgit.com/lonekorean/gist-syntax-themes/d49b91b3/stylesheets/cobalt.css"
+      />
+      <script
+        type="application/javascript"
+        src={`https://gist.github.com/${src}.js`}
+      />
+    </>
+  );
 }
 
-export default Gist
+export default Gist;

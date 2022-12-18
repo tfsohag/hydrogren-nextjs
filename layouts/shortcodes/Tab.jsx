@@ -1,11 +1,5 @@
-
-
-function Tab({children}) {
-  return (
-    <li className="tab-item hidden my-0">
-          {children}
-    </li>
-  )
+function Tab({ children }) {
+  return <li className="tab-item my-0 hidden">{children}</li>;
 }
 
-export default Tab
+export default Tab;

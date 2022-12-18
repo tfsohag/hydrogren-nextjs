@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import { Gallery as ImageGallery } from "react-grid-gallery";
 import Lightbox from "react-image-lightbox";
@@ -17,18 +15,16 @@ const getImagesFromFolder = () => {
   return images;
 };
 
-
-
 function Gallery() {
   //local state
-	const [index, setIndex] = useState(-1);
-  
+  const [index, setIndex] = useState(-1);
+
   //Gallery images
-  const images = [...new Set(getImagesFromFolder())].map(module => {
-    const paths = module.default.src.split('/');
-    const filename = paths[paths.length - 1].replace(/\.([^\.]+)\./, '.')
-    return {src: `/images/gallery/${filename}`}
-  })
+  const images = [...new Set(getImagesFromFolder())].map((module) => {
+    const paths = module.default.src.split("/");
+    const filename = paths[paths.length - 1].replace(/\.([^\.]+)\./, ".");
+    return { src: `/images/gallery/${filename}` };
+  });
 
   const currentImage = images[index];
   const nextIndex = (index + 1) % images.length;
@@ -41,10 +37,15 @@ function Gallery() {
   const handleMovePrev = () => setIndex(prevIndex);
   const handleMoveNext = () => setIndex(nextIndex);
 
-	return (
-		<div className='gallery'>
-			<ImageGallery enableImageSelection={false} images={images} rowHeight={294} onClick={handleClick} />
-			{!!currentImage && (
+  return (
+    <div className="gallery">
+      <ImageGallery
+        enableImageSelection={false}
+        images={images}
+        rowHeight={294}
+        onClick={handleClick}
+      />
+      {!!currentImage && (
         /* @ts-ignore */
         <Lightbox
           mainSrc={currentImage.src}
@@ -58,9 +59,8 @@ function Gallery() {
           onMoveNextRequest={handleMoveNext}
         />
       )}
-		</div>
-
-	)
+    </div>
+  );
 }
 
-export default Gallery
+export default Gallery;

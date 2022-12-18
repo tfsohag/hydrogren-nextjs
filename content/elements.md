@@ -1,8 +1,6 @@
 ---
 title: "Elements"
 draft: false
-
-arr: hello
 ---
 
 # Heading 1
@@ -95,8 +93,8 @@ Some text to show that the reference links can follow later.
 
 ##### HTML
 
-```
-<ul>
+<HighlightedCode language="html">
+{`<ul>
   <li class="nav-item">
     <a class="nav-link" href="/">Home</a>
   </li>
@@ -104,31 +102,35 @@ Some text to show that the reference links can follow later.
     <a class="nav-link" href="about/">About</a>
   </li>
 </ul>
-```
+`}
+</HighlightedCode>
 
 ---
 
 ##### CSS
 
-```
-
-img {
+<HighlightedCode language="css">
+{`
+  img {
   vertical-align: middle;
   border: 0;
   max-width: 100%;
   height: auto;
 }
-```
+`}
+</HighlightedCode>
 
 ---
 
 ##### JavaScript
 
-```
+<HighlightedCode language="javascript">
+{`
 window.addEventListener("load", (e) => {
   document.querySelector(".preloader").style.display = "none";
-});
-```
+})
+`}
+</HighlightedCode>
 
 ---
 
@@ -158,15 +160,15 @@ window.addEventListener("load", (e) => {
 
 #### Notice
 
-<Notice type="note" title="Notice">
+<Notice type="note">
   This is a simple note.
 </Notice>
 
-<Notice type="tip" title="Tip">
+<Notice type="tip">
   This is a simple note.
 </Notice>
 
-<Notice type="info" title="Info">
+<Notice type="info">
   This is a simple note.
 </Notice>
 
@@ -179,13 +181,15 @@ window.addEventListener("load", (e) => {
 <Tabs>
 
 <Tab name="Tab 1">
-  ##### Did you come here for something in particular?
+
+##### Did you come here for something in particular?
 
   Did you come here for something in particular or just general Riker-bashing? And blowing into maximum warp speed, you appeared for an instant to be in two places at once. We have a saboteur aboard. We know you’re dealing in stolen ore. But I wanna talk about the assassination attempt on Lieutenant Worf.
 </Tab>
 
 <Tab name="Tab 2">
-  ##### I wanna talk about the assassination attempt.
+
+##### I wanna talk about the assassination attempt
 
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
@@ -193,7 +197,8 @@ window.addEventListener("load", (e) => {
 </Tab>
 
 <Tab name="Tab 3">
-  ##### We know you’re dealing in stolen ore
+
+##### We know you’re dealing in stolen ore
 
   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
@@ -217,25 +222,33 @@ window.addEventListener("load", (e) => {
 #### Collapse
 
 <Accordion title="Why should you need to do this?">
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
+
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+
 </Accordion>
+
 <Accordion className="mt-3" title="How can I adjust Horizontal centering">
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
+
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+
 </Accordion>
+
 <Accordion className="mt-3" title="Should you use Negative margin?">
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
-  - This is a thing.
+
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+- This is a thing.
+
 </Accordion>
 
 ---
@@ -254,13 +267,10 @@ window.addEventListener("load", (e) => {
 
 #### Youtube video
 
-<YoutubePlayere id="ResipmZmpDU" title="Play: Video" />
+<Youtube id="qJA2U-YMvkk" title="Play: Video" />
 
----
 ---
 
 #### Custom video
 
-<CustomPlayer src="http://techslides.com/demos/sample-videos/small.mp4" />
-
----
+<Video width="100%" src="http://techslides.com/demos/sample-videos/small.mp4" />
